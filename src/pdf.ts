@@ -2,9 +2,26 @@ import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import type { Module } from './types';
 import { getPdfBuffer } from './usePdfStore';
 
-// 禁用独立 worker，在主线程运行
-// 原因：Safari/WebKit 不支持 ES Module worker (.mjs)，会导致渲染失败
-GlobalWorkerOptions.workerSrc = '';
+// Safari/WebKit 不支持 ES Module worker，需要在主线程运行
+// Chrome/Firefox 需要 worker 才能正常渲染
+// 运行时检测：如果支持 module worker 就用，否则禁用
+function setupWorker() {
+  try {
+    // 检测是否支持 module type worker
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) {
+      GlobalWorkerOptions.workerSrc = '';
+    } else {
+      GlobalWorkerOptions.workerSrc = new URL(
+        '/pdfjs/pdf.worker.min.mjs',
+        document.baseURI
+      ).href;
+    }
+  } catch {
+    GlobalWorkerOptions.workerSrc = '';
+  }
+}
+setupWorker();
 
 // 缓存 key 用 `${lang}-${moduleId}`（ArrayBuffer 引用不变则复用）
 const docs = new Map<string, ReturnType<typeof getDocument>>();

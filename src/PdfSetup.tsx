@@ -16,7 +16,9 @@ import { registerPdf, registerPdfBuffer } from './usePdfStore';
 import { savePdfToDB, loadAllFromDB, deletePdfFromDB } from './pdfStorage';
 import type { Module } from './types';
 
-GlobalWorkerOptions.workerSrc = '';
+GlobalWorkerOptions.workerSrc = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+  ? ''
+  : new URL('/pdfjs/pdf.worker.min.mjs', document.baseURI).href;
 
 type UploadState = {
   file?: File;          // 新上传的文件（可选，DB 恢复时无）
