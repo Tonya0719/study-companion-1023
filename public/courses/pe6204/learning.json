@@ -7607,6 +7607,132 @@
           "focus": "The course connects secure design, development, deployment, operation and maintenance. Findings from operation should inform earlier lifecycle activities."
         }
       ]
+    },
+    "M3-N021": {
+      "title": "Secure by Design Core Principles — Three Principles",
+      "explanation": "Secure by Design asks software manufacturers to treat software security as a strategic priority and build it into design before development, configuration and shipment. Three core principles guide this: take ownership of customer security outcomes, embrace radical transparency and accountability, and lead from the top.",
+      "sources": [
+        {
+          "page": 8,
+          "text": "Secure by Design Core Principles\nSoftware manufacturers are encouraged to adopt a strategic focus that prioritizes software security.\nThree core principles was defined to guide software manufacturers in building software security into their design processes prior to development, configuration, and shipment of their products.\n[Slide graphic]\nPrinciple 1 — Take ownership of customer security outcomes: The burden of security should not fall solely on the customer. Software manufacturers have a responsibility to ensure that their products are designed and developed with security as a top priority.\nPrinciple 2 — Embrace radical transparency and accountability: Software manufacturers should share information they learn from product deployments and vulnerabilities to help other manufacturers learn what to do and what not to do.\nPrinciple 3 — Lead from the top: Executives should prioritize security as a critical element of product development across the organization."
+        }
+      ],
+      "terms": [
+        {
+          "en": "Customer security outcomes",
+          "zh": "客户安全结果",
+          "definition": "The security results customers experience; manufacturers should own them instead of leaving the burden solely on customers.",
+          "page": 8
+        },
+        {
+          "en": "Radical transparency",
+          "zh": "彻底透明",
+          "definition": "Sharing what is learned from product deployments and vulnerabilities so other manufacturers learn what to do and what not to do.",
+          "page": 8
+        },
+        {
+          "en": "Lead from the top",
+          "zh": "高层领导推动",
+          "definition": "Executives prioritize security as a critical element of product development across the organization.",
+          "page": 8
+        }
+      ],
+      "relations": [
+        {
+          "id": "M3-N002",
+          "type": "Overview",
+          "reason": "p.9 introduces the practice categories through which the three principles are explained."
+        },
+        {
+          "id": "M3-N012",
+          "type": "Principle 1",
+          "reason": "Expands on taking ownership of customer security outcomes."
+        },
+        {
+          "id": "M3-N013",
+          "type": "Principle 2",
+          "reason": "Expands on radical transparency and accountability."
+        },
+        {
+          "id": "M3-N014",
+          "type": "Principle 3",
+          "reason": "Expands on leadership from the top."
+        }
+      ],
+      "quizzes": [
+        {
+          "id": "M3-N021-multi",
+          "type": "multi",
+          "question": "Which of the following are the three Secure by Design core principles? Select all that apply.",
+          "options": [
+            {
+              "text": "Take ownership of customer security outcomes",
+              "correct": true,
+              "module": 3,
+              "page": 8,
+              "reason": "Principle 1 on p.8."
+            },
+            {
+              "text": "Embrace radical transparency and accountability",
+              "correct": true,
+              "module": 3,
+              "page": 8,
+              "reason": "Principle 2 on p.8."
+            },
+            {
+              "text": "Lead from the top",
+              "correct": true,
+              "module": 3,
+              "page": 8,
+              "reason": "Principle 3 on p.8."
+            },
+            {
+              "text": "Secure by Default Practices",
+              "correct": false,
+              "module": 3,
+              "page": 9,
+              "reason": "A practice category used to illustrate the principles (p.9), not one of the three principles."
+            }
+          ],
+          "focus": "Separate the three principles (p.8) from the practice categories that illustrate them (p.9)."
+        },
+        {
+          "id": "M3-N021-single",
+          "type": "single",
+          "question": "Which principle says executives should prioritize security as a critical element of product development across the organization?",
+          "options": [
+            {
+              "text": "Lead from the top",
+              "correct": true,
+              "module": 3,
+              "page": 8,
+              "reason": "Principle 3 places responsibility on executives."
+            },
+            {
+              "text": "Take ownership of customer security outcomes",
+              "correct": false,
+              "module": 3,
+              "page": 8,
+              "reason": "Principle 1 is about manufacturers not leaving the security burden solely on customers."
+            },
+            {
+              "text": "Embrace radical transparency and accountability",
+              "correct": false,
+              "module": 3,
+              "page": 8,
+              "reason": "Principle 2 is about sharing lessons from deployments and vulnerabilities."
+            },
+            {
+              "text": "Pro Security Business Practices",
+              "correct": false,
+              "module": 3,
+              "page": 9,
+              "reason": "A practice category on p.9, not a core principle."
+            }
+          ],
+          "focus": "Match each principle to who acts: manufacturer (P1), sharing with others (P2), executives (P3)."
+        }
+      ]
     }
   }
 }

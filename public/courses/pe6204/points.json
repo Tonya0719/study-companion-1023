@@ -1650,6 +1650,24 @@
     "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
   },
   {
+    "id": "M3-N021",
+    "module": 3,
+    "priority": "Very Important",
+    "pages": [
+      8
+    ],
+    "page": 8,
+    "title": "Secure by Design Core Principles — Three Principles",
+    "slide_wording": "Three core principles: Take ownership of customer security outcomes; Embrace radical transparency and accountability; Lead from the top. Software manufacturers are encouraged to make software security a strategic priority before product development, configuration and shipment.",
+    "explain": "三条原则分别强调：制造商承担客户安全结果责任；主动透明并承担问责；由高层领导推动安全。注意将三项原则与后续展开页对应起来。",
+    "prediction": "Identify the three principles; distinguish manufacturer responsibility, transparency/accountability and executive leadership.",
+    "question": "Which three principles are highlighted on the VERY IMPORTANT slide?",
+    "answer": "Take ownership of customer security outcomes; Embrace radical transparency and accountability; Lead from the top.",
+    "review": "该页展示三大原则及其在产品设计和管理层面的含义，属于老师明确标记的 VERY IMPORTANT 考点。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
     "id": "M4-N013",
     "module": 4,
     "priority": "Others",
