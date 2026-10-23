@@ -2,11 +2,9 @@ import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import type { Module } from './types';
 import { getPdfBuffer } from './usePdfStore';
 
-// Worker 作为静态文件部署，避免 blob: URL 被 CSP 拦截
-GlobalWorkerOptions.workerSrc = new URL(
-  '/pdfjs/pdf.worker.min.mjs',
-  document.baseURI
-).href;
+// 禁用独立 worker，在主线程运行
+// 原因：Safari/WebKit 不支持 ES Module worker (.mjs)，会导致渲染失败
+GlobalWorkerOptions.workerSrc = '';
 
 // 缓存 key 用 `${lang}-${moduleId}`（ArrayBuffer 引用不变则复用）
 const docs = new Map<string, ReturnType<typeof getDocument>>();

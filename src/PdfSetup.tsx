@@ -11,13 +11,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
-import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { BookOpen, Upload, Check, AlertTriangle, X, FileText, LoaderCircle, RefreshCw } from 'lucide-react';
 import { registerPdf, registerPdfBuffer } from './usePdfStore';
 import { savePdfToDB, loadAllFromDB, deletePdfFromDB } from './pdfStorage';
 import type { Module } from './types';
 
-GlobalWorkerOptions.workerSrc = workerUrl;
+GlobalWorkerOptions.workerSrc = '';
 
 type UploadState = {
   file?: File;          // 新上传的文件（可选，DB 恢复时无）
