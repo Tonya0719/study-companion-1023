@@ -12,7 +12,7 @@ export default function InlineAI({point,module,section,session,update,configure,
   const [busy,setBusy]=useState(false),[partial,setPartial]=useState(''),[error,setError]=useState(''),[lastPrompt,setLastPrompt]=useState('');
   const controller=useRef<AbortController|null>(null),starting=useRef(false),latest=useRef(session);latest.current=session;
   useEffect(()=>()=>controller.current?.abort(),[]);
-  useEffect(()=>{if(selectedText)update({...latest.current,open:true,input:`Please explain this passage in English:\n${selectedText}`});},[selectedText]);
+  useEffect(()=>{if(selectedText)update({...latest.current,open:true,input:`请解释这段内容：\n${selectedText}`});},[selectedText]);
   const run=async(prompt:string)=>{
     if(busy||starting.current||controller.current||!prompt.trim())return;
     if(!model.trim()){setError('请在设置中填写模型标识。');return;}
@@ -32,7 +32,7 @@ export default function InlineAI({point,module,section,session,update,configure,
       update({...latest.current,messages:[...history,{role:'user',content:prompt},{role:'assistant',content:output}]});
     }catch(err){if(output)update({...latest.current,messages:[...history,{role:'user',content:prompt},{role:'assistant',content:output+'\n\n*（输出中断）*'}]});else update({...latest.current,messages:history,input:prompt});setError(abort.signal.aborted?'生成已停止，可重试。':err instanceof Error?err.message:'AI 暂时不可用');}finally{clearTimeout(timer);controller.current=null;setBusy(false);setPartial('');}
   };
-  const chips=section==='practice'?[['Hint','Give me a hint without revealing the answer.'],['Another question','Create a new English multiple-choice question about this topic. Do not show the answer yet.']]:[['Explain further','Explain this topic further in English, citing the supplied module and page labels.'],['Example','Give a simple example in English, distinguishing an illustration from slide facts.'],['中文解释','请用中文帮助我理解当前考点，保留英文术语，并引用提供的页码。']];
+  const chips=section==='practice'?[['Hint','Give me a hint without revealing the answer.'],['再出一题','请用中文出一道关于这个考点的选择题，暂时不显示答案。']]:[['Explain further','Explain this topic further, citing the supplied module and page labels.'],['举个例子','请用中文举一个简单的例子来说明这个概念，区分例子与课件原文。'],['中文解释','请用中文帮助我理解当前考点，保留英文术语，并引用提供的页码。']];
   return <div className={`inline-ai ${session.open?'expanded':''}`}>
     <button className="ai-entry" onClick={()=>update({...session,open:!session.open})} aria-expanded={session.open}><Sparkles size={15}/><span>{section==='practice'?'Need a hint or another question?':'Need further explanation?'}</span>{session.open?<ChevronUp size={14}/>:<ChevronDown size={14}/>}</button>
     <AnimatePresence initial={false}>{session.open&&<motion.div className="ai-panel" initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1}} exit={{height:0,opacity:0}} transition={{duration:.2}}>
