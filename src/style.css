@@ -76,3 +76,10 @@
 .setup-enter{padding:10px 22px;font-size:0.9375rem;gap:8px}
 .setup-enter:disabled{opacity:.35}
 @media(max-width:480px){.setup-header{padding:28px 22px 22px}.setup-modules{padding:16px 18px}.setup-footer{flex-direction:column;align-items:stretch;text-align:center}.setup-enter{width:100%;justify-content:center}.setup-error,.setup-warning{margin-left:0}}
+
+/* label 包裹的 input[type=file] — 隐藏原生控件但保持可点击 */
+.setup-upload-btn input[type=file],
+.setup-reupload input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+.setup-upload-btn{position:relative;cursor:pointer}
+.setup-reupload{position:relative;cursor:pointer}
+.setup-upload-btn.loading{opacity:.5;pointer-events:none}

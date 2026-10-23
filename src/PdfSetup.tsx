@@ -44,8 +44,7 @@ export default function PdfSetup({ modules, onReady }: Props) {
   const [en, setEn] = useState<Record<number, UploadState>>({});
   const [zh, setZh] = useState<Record<number, UploadState>>({});
   const [loading, setLoading] = useState<string>('');
-  const [restoring, setRestoring] = useState(true); // 启动时恢复 DB
-  const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
+  const [restoring, setRestoring] = useState(true);
 
   // 启动时从 IndexedDB 恢复
   useEffect(() => {
@@ -237,20 +236,24 @@ export default function PdfSetup({ modules, onReady }: Props) {
                       <span className="page-count">{enState.pageCount} 页</span>
                       {enState.fromDB && <span className="db-badge"><RefreshCw size={10} />已恢复</span>}
                       {enState.error ? <AlertTriangle size={14} /> : <Check size={14} />}
-                      <button className="setup-reupload" onClick={() => inputRefs.current[`en-${m.id}`]?.click()} title="重新上传">
+                      <label className="setup-reupload" title="重新上传">
                         <X size={12} />
-                      </button>
+                        <input type="file" accept=".pdf,application/pdf"
+                          onChange={(e) => { const f = e.target.files?.[0]; if (f) void handleFile('en', m.id, f); e.target.value = ''; }}
+                        />
+                      </label>
                     </div>
                   ) : (
-                    <button className="setup-upload-btn" onClick={() => inputRefs.current[`en-${m.id}`]?.click()} disabled={loading === `en-${m.id}`}>
+                    <label className={`setup-upload-btn${loading === `en-${m.id}` ? ' loading' : ''}`}>
                       <Upload size={14} />
                       {loading === `en-${m.id}` ? '读取中…' : '选择文件'}
-                    </button>
+                      {loading !== `en-${m.id}` && (
+                        <input type="file" accept=".pdf,application/pdf"
+                          onChange={(e) => { const f = e.target.files?.[0]; if (f) void handleFile('en', m.id, f); e.target.value = ''; }}
+                        />
+                      )}
+                    </label>
                   )}
-                  <input type="file" accept=".pdf,application/pdf" style={{ display: 'none' }}
-                    ref={(el) => { inputRefs.current[`en-${m.id}`] = el; }}
-                    onChange={(e) => { const f = e.target.files?.[0]; if (f) void handleFile('en', m.id, f); e.target.value = ''; }}
-                  />
                 </div>
                 {enState?.error && <div className="setup-error">{enState.error}</div>}
 
@@ -264,20 +267,24 @@ export default function PdfSetup({ modules, onReady }: Props) {
                       <span className="page-count">{zhState.pageCount} 页</span>
                       {zhState.fromDB && <span className="db-badge"><RefreshCw size={10} />已恢复</span>}
                       {zhState.error ? <AlertTriangle size={14} /> : zhState.warning ? <AlertTriangle size={14} className="warn-icon" /> : <Check size={14} />}
-                      <button className="setup-reupload" onClick={() => inputRefs.current[`zh-${m.id}`]?.click()} title="重新上传">
+                      <label className="setup-reupload" title="重新上传">
                         <X size={12} />
-                      </button>
+                        <input type="file" accept=".pdf,application/pdf"
+                          onChange={(e) => { const f = e.target.files?.[0]; if (f) void handleFile('zh', m.id, f); e.target.value = ''; }}
+                        />
+                      </label>
                     </div>
                   ) : (
-                    <button className="setup-upload-btn optional" onClick={() => inputRefs.current[`zh-${m.id}`]?.click()} disabled={loading === `zh-${m.id}`}>
+                    <label className={`setup-upload-btn optional${loading === `zh-${m.id}` ? ' loading' : ''}`}>
                       <Upload size={14} />
                       {loading === `zh-${m.id}` ? '读取中…' : '选择文件（可选）'}
-                    </button>
+                      {loading !== `zh-${m.id}` && (
+                        <input type="file" accept=".pdf,application/pdf"
+                          onChange={(e) => { const f = e.target.files?.[0]; if (f) void handleFile('zh', m.id, f); e.target.value = ''; }}
+                        />
+                      )}
+                    </label>
                   )}
-                  <input type="file" accept=".pdf,application/pdf" style={{ display: 'none' }}
-                    ref={(el) => { inputRefs.current[`zh-${m.id}`] = el; }}
-                    onChange={(e) => { const f = e.target.files?.[0]; if (f) void handleFile('zh', m.id, f); e.target.value = ''; }}
-                  />
                 </div>
                 {zhState?.error && <div className="setup-error">{zhState.error}</div>}
                 {zhState?.warning && !zhState.error && <div className="setup-warning">{zhState.warning}</div>}
