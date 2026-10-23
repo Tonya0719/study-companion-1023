@@ -2,26 +2,23 @@ import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import type { Module } from './types';
 import { getPdfBuffer } from './usePdfStore';
 
-// Safari/WebKit 不支持 ES Module worker，需要在主线程运行
-// Chrome/Firefox 需要 worker 才能正常渲染
+function isSafari() {
+  return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+}
+
 function setupWorker() {
   try {
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    if (isSafari) {
-      GlobalWorkerOptions.workerSrc = '';
-    } else {
-      GlobalWorkerOptions.workerSrc = new URL(
-        '/pdfjs/pdf.worker.min.mjs',
-        document.baseURI
-      ).href;
-    }
+    GlobalWorkerOptions.workerSrc = isSafari()
+      ? ''
+      : new URL('/pdfjs/pdf.worker.min.mjs', document.baseURI).href;
   } catch {
     GlobalWorkerOptions.workerSrc = '';
   }
 }
 
 export function ensureWorker() {
-  if (GlobalWorkerOptions.workerSrc === undefined) setupWorker();
+  // 每次调用都重新检查，确保 workerSrc 始终正确
+  setupWorker();
 }
 
 setupWorker();
