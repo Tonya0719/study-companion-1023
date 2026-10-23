@@ -30,9 +30,10 @@ export function getPDF(module: Module, language: 'en' | 'zh' = 'en') {
 
   let task = docs.get(key);
   if (!task) {
-    // 传 data（ArrayBuffer 副本），不走 URL fetch
+    // 用 Uint8Array 复制数据，比 ArrayBuffer.slice 在 Safari 上更兼容
+    const data = new Uint8Array(buffer);
     task = getDocument({
-      data: buffer.slice(0),
+      data,
       cMapUrl: new URL('/pdfjs/cmaps/', document.baseURI).href,
       cMapPacked: true,
       standardFontDataUrl: new URL('/pdfjs/standard_fonts/', document.baseURI).href,

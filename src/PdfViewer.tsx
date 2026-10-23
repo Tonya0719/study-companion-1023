@@ -26,7 +26,7 @@ export default function PdfViewer({module,page,onPage,related,onPoint,back,langu
       const frame=holder.current;if(!frame)return;frame.style.width=`${viewport.width}px`;frame.style.height=`${viewport.height}px`;frame.replaceChildren(canvas,layer);frame.dataset.page=`M${module.id}-${page}`;frame.dataset.language=language;
       setActual(Math.round(viewport.scale*100));setRendered(n=>n+1);setBusy(false);
     }catch(err){if(cancelled)return;setError(err instanceof Error?err.message:'课件加载失败');setBusy(false);}})();},90);
-    return()=>{cancelled=true;clearTimeout(timer);renderTask?.cancel();textLayer?.cancel();};
+    return()=>{cancelled=true;clearTimeout(timer);renderTask?.cancel();if(typeof textLayer?.cancel==='function')textLayer.cancel();};
   },[module.id,page,language,size.width,size.height,mode,zoom]);
   useEffect(()=>{let found=0;holder.current?.querySelectorAll('.textLayer span').forEach(span=>{const match=!!query.trim()&&!!span.textContent?.toLowerCase().includes(query.toLowerCase());span.classList.toggle('pdf-match',match);if(match)found++;});setMatches(found);},[query,rendered]);
   useEffect(()=>{const el=area.current;if(!el)return;const wheel=(e:WheelEvent)=>{if(e.ctrlKey){e.preventDefault();setMode('custom');setZoom(z=>Math.min(5,Math.max(.25,(mode==='custom'?z:actual/100)*(e.deltaY<0?1.1:.9))));}};el.addEventListener('wheel',wheel,{passive:false});return()=>el.removeEventListener('wheel',wheel);},[actual,mode]);
