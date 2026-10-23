@@ -1,0 +1,286 @@
+/**
+ * PdfSetup — 首次使用时的 PDF 上传界面
+ *
+ * 规则：
+ * - 英文版（M1–M5）必须全部上传才能进入
+ * - 中文版可选，逐模块单独上传
+ * - 中文 M1 若页数 = 英文 M1 页数 + 1，说明未删第 34 页，阻止并提示
+ * - 中文其他模块若页数 ≠ 英文版，显示警告但不阻止
+ */
+
+import { useRef, useState } from 'react';
+import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
+import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import { BookOpen, Upload, Check, AlertTriangle, X, FileText } from 'lucide-react';
+import { registerPdf } from './usePdfStore';
+import type { Module } from './types';
+
+GlobalWorkerOptions.workerSrc = workerUrl;
+
+type UploadState = {
+  file: File;
+  pageCount: number;
+  error?: string;   // 阻止继续的错误（需重传）
+  warning?: string; // 警告（可以继续）
+};
+
+type Props = {
+  modules: Module[];
+  onReady: (pageCounts: Record<number, { en: number; zh?: number }>) => void;
+};
+
+async function getPdfPageCount(file: File): Promise<number> {
+  const url = URL.createObjectURL(file);
+  try {
+    const doc = await getDocument({
+      url,
+      cMapUrl: new URL('pdfjs/cmaps/', document.baseURI).href,
+      cMapPacked: true,
+      standardFontDataUrl: new URL('pdfjs/standard_fonts/', document.baseURI).href,
+      wasmUrl: new URL('pdfjs/wasm/', document.baseURI).href,
+    }).promise;
+    return doc.numPages;
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+export default function PdfSetup({ modules, onReady }: Props) {
+  const [en, setEn] = useState<Record<number, UploadState>>({});
+  const [zh, setZh] = useState<Record<number, UploadState>>({});
+  const [loading, setLoading] = useState<string>('');
+  const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
+
+  const handleFile = async (
+    lang: 'en' | 'zh',
+    moduleId: number,
+    file: File
+  ) => {
+    if (!file.name.endsWith('.pdf') && file.type !== 'application/pdf') {
+      alert('请上传 PDF 文件');
+      return;
+    }
+    const key = `${lang}-${moduleId}`;
+    setLoading(key);
+    try {
+      const pageCount = await getPdfPageCount(file);
+
+      // 校验逻辑
+      let error: string | undefined;
+      let warning: string | undefined;
+
+      if (lang === 'zh') {
+        const enPages = en[moduleId]?.pageCount;
+        if (enPages !== undefined) {
+          if (moduleId === 1 && pageCount === enPages + 1) {
+            // M1 中文版比英文版多 1 页 → 第 34 页未删
+            error =
+              `中文 M1 比英文版多 1 页（${pageCount} vs ${enPages} 页）。` +
+              `请在 PDF 编辑器中删除原第 34 页后重新上传。`;
+          } else if (pageCount !== enPages) {
+            warning =
+              `中文 M${moduleId} 页数（${pageCount} 页）与英文版（${enPages} 页）不一致，` +
+              `语言切换时页码可能偏移。`;
+          }
+        }
+      }
+
+      const state: UploadState = { file, pageCount, error, warning };
+
+      if (lang === 'en') {
+        setEn((prev) => ({ ...prev, [moduleId]: state }));
+        // 英文版更新后重新校验对应中文版
+        setZh((prev) => {
+          const zhEntry = prev[moduleId];
+          if (!zhEntry) return prev;
+          let zhError: string | undefined;
+          let zhWarning: string | undefined;
+          if (moduleId === 1 && zhEntry.pageCount === pageCount + 1) {
+            zhError =
+              `中文 M1 比英文版多 1 页（${zhEntry.pageCount} vs ${pageCount} 页）。` +
+              `请在 PDF 编辑器中删除原第 34 页后重新上传。`;
+          } else if (zhEntry.pageCount !== pageCount) {
+            zhWarning =
+              `中文 M${moduleId} 页数（${zhEntry.pageCount} 页）与英文版（${pageCount} 页）不一致，` +
+              `语言切换时页码可能偏移。`;
+          }
+          return { ...prev, [moduleId]: { ...zhEntry, error: zhError, warning: zhWarning } };
+        });
+      } else {
+        setZh((prev) => ({ ...prev, [moduleId]: state }));
+      }
+    } catch {
+      alert(`无法读取 PDF，请确认文件完整。`);
+    } finally {
+      setLoading('');
+    }
+  };
+
+  const allEnReady = modules.every((m) => en[m.id] && !en[m.id].error);
+  const hasZhError = modules.some((m) => zh[m.id]?.error);
+  const canEnter = allEnReady && !hasZhError;
+
+  const handleEnter = () => {
+    if (!canEnter) return;
+    // 注册所有已上传的 PDF 到 store
+    const pageCounts: Record<number, { en: number; zh?: number }> = {};
+    for (const m of modules) {
+      registerPdf('en', m.id, en[m.id].file, en[m.id].pageCount);
+      pageCounts[m.id] = { en: en[m.id].pageCount };
+      if (zh[m.id] && !zh[m.id].error) {
+        registerPdf('zh', m.id, zh[m.id].file, zh[m.id].pageCount);
+        pageCounts[m.id].zh = zh[m.id].pageCount;
+      }
+    }
+    onReady(pageCounts);
+  };
+
+  return (
+    <div className="setup-screen">
+      <div className="setup-card">
+        <div className="setup-header">
+          <div className="brand-icon"><BookOpen size={28} /></div>
+          <h1>Study Companion</h1>
+          <p className="setup-subtitle">PE6204 · Cybersecurity &amp; Secure AI</p>
+          <p className="setup-desc">
+            请上传你的课件 PDF，文件仅保存在本地浏览器，不会上传到服务器。
+            <br />
+            英文版（必须）＋ 中文版（可选）
+          </p>
+        </div>
+
+        <div className="setup-modules">
+          {modules.map((m) => {
+            const enState = en[m.id];
+            const zhState = zh[m.id];
+
+            return (
+              <div key={m.id} className="setup-module">
+                <div className="setup-module-title">
+                  <span className="module-badge">M{m.id}</span>
+                  <span>{m.shortTitle}</span>
+                </div>
+
+                {/* 英文版 */}
+                <div className="setup-upload-row">
+                  <span className="setup-lang-label required">英文版 *</span>
+                  {enState ? (
+                    <div className={`setup-file-status ${enState.error ? 'error' : 'ok'}`}>
+                      <FileText size={14} />
+                      <span>{enState.file.name}</span>
+                      <span className="page-count">{enState.pageCount} 页</span>
+                      {enState.error
+                        ? <AlertTriangle size={14} />
+                        : <Check size={14} />
+                      }
+                      <button
+                        className="setup-reupload"
+                        onClick={() => inputRefs.current[`en-${m.id}`]?.click()}
+                        title="重新上传"
+                      >
+                        <X size={12} />
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      className="setup-upload-btn"
+                      onClick={() => inputRefs.current[`en-${m.id}`]?.click()}
+                      disabled={loading === `en-${m.id}`}
+                    >
+                      <Upload size={14} />
+                      {loading === `en-${m.id}` ? '读取中…' : '选择文件'}
+                    </button>
+                  )}
+                  <input
+                    type="file"
+                    accept=".pdf,application/pdf"
+                    style={{ display: 'none' }}
+                    ref={(el) => { inputRefs.current[`en-${m.id}`] = el; }}
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) void handleFile('en', m.id, f);
+                      e.target.value = '';
+                    }}
+                  />
+                </div>
+                {enState?.error && (
+                  <div className="setup-error">{enState.error}</div>
+                )}
+
+                {/* 中文版 */}
+                <div className="setup-upload-row">
+                  <span className="setup-lang-label optional">中文版</span>
+                  {zhState ? (
+                    <div className={`setup-file-status ${zhState.error ? 'error' : zhState.warning ? 'warn' : 'ok'}`}>
+                      <FileText size={14} />
+                      <span>{zhState.file.name}</span>
+                      <span className="page-count">{zhState.pageCount} 页</span>
+                      {zhState.error
+                        ? <AlertTriangle size={14} />
+                        : zhState.warning
+                          ? <AlertTriangle size={14} className="warn-icon" />
+                          : <Check size={14} />
+                      }
+                      <button
+                        className="setup-reupload"
+                        onClick={() => inputRefs.current[`zh-${m.id}`]?.click()}
+                        title="重新上传"
+                      >
+                        <X size={12} />
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      className="setup-upload-btn optional"
+                      onClick={() => inputRefs.current[`zh-${m.id}`]?.click()}
+                      disabled={loading === `zh-${m.id}`}
+                    >
+                      <Upload size={14} />
+                      {loading === `zh-${m.id}` ? '读取中…' : '选择文件（可选）'}
+                    </button>
+                  )}
+                  <input
+                    type="file"
+                    accept=".pdf,application/pdf"
+                    style={{ display: 'none' }}
+                    ref={(el) => { inputRefs.current[`zh-${m.id}`] = el; }}
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) void handleFile('zh', m.id, f);
+                      e.target.value = '';
+                    }}
+                  />
+                </div>
+                {zhState?.error && (
+                  <div className="setup-error">{zhState.error}</div>
+                )}
+                {zhState?.warning && !zhState.error && (
+                  <div className="setup-warning">{zhState.warning}</div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="setup-footer">
+          <p className="setup-hint">
+            {!allEnReady
+              ? `还需上传 ${modules.filter((m) => !en[m.id]).length} 个英文版模块`
+              : hasZhError
+                ? '请修复中文版错误后继续'
+                : '所有必要文件已就绪 ✓'
+            }
+          </p>
+          <button
+            className="primary-button setup-enter"
+            disabled={!canEnter}
+            onClick={handleEnter}
+          >
+            <BookOpen size={16} />
+            进入学习空间
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

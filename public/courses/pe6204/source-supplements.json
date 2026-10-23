@@ -1,0 +1,62 @@
+[
+  {
+    "id": "M1-N029",
+    "fields": {
+      "slide_wording": "“Means used to deal with security attacks”; “May itself introduce new vulnerabilities”; “Residual vulnerabilities may remain”; “Goal is to minimize residual level of risk to the assets”.",
+      "explain": "网络防御用于处理安全攻击，但防护措施本身也可能引入新的漏洞。即使实施防护，仍可能存在剩余漏洞，目标是尽量降低资产的剩余风险。",
+      "prediction": "distinguish eliminating all risk from minimizing residual risk. / 区分零风险与剩余风险最小化。",
+      "question": "According to the slide, what is the goal of cyber defense regarding residual risk? (A) Eliminate all possible risk (B) Minimize residual risk to assets (C) Avoid all security controls."
+    },
+    "source": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1",
+    "retrievedAt": "2026-10-20",
+    "reason": "旧版字段标签解析遗漏；从现有 Notion 笔记补回，非 AI 新生成"
+  },
+  {
+    "id": "M3-N018",
+    "fields": {
+      "slide_wording": "Eliminate Default Password; Conduct Field Test; Reduce Hardening Guide Size; Discourage use of unsafe legacy features; Implement attention grabbing alert; Create secure configuration templates.",
+      "explain": "消除默认密码；开展现场测试；缩减加固指南规模；不鼓励不安全的旧功能；提供醒目警告；提供安全配置模板。",
+      "prediction": "multiple-selection identifying Secure by Default measures. / 多选哪些属于默认安全实践。",
+      "question": "Which of the following belong to Secure by Default Practices? (A) Eliminate Default Password (B) Conduct Field Test (C) Create secure configuration templates (D) None of the above."
+    },
+    "source": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82",
+    "retrievedAt": "2026-10-20",
+    "reason": "旧版字段标签解析遗漏；从现有 Notion 笔记补回，非 AI 新生成"
+  },
+  {
+    "id": "M3-N019",
+    "fields": {
+      "slide_wording": "Document conformance to Secure SDLC Framework; Document conformance to Cybersecurity Performance Goals (CPGs); Vulnerability Management; Responsibly use open source software, library, and frameworks; Provide secure defaults for Developers; Foster Software Developer Workforce that Understands Security; Securing Monitoring (SIEM & SOAR); Align with Zero Trust.",
+      "explain": "记录对安全SDLC及CPGs的遵循；漏洞管理；负责任使用开源组件；为开发者提供安全默认值；提升开发者安全能力；SIEM/SOAR安全监控；与零信任对齐。",
+      "prediction": "distinguish practices on p.13 from customer-facing configuration on p.12. / 安全开发实践与默认配置实践的分类比较。",
+      "question": "Which practice is listed under Secure Product Development Practices? (A) Vulnerability Management (B) Eliminate Default Password (C) Provide Upgrading Tooling."
+    },
+    "source": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82",
+    "retrievedAt": "2026-10-20",
+    "reason": "旧版字段标签解析遗漏；从现有 Notion 笔记补回，非 AI 新生成"
+  },
+  {
+    "id": "M3-N020",
+    "fields": {
+      "slide_wording": "Provide logging at no additional charges; Eliminate hidden taxes; Embrace Open Standard; Provide Upgrading Tooling; “Security should not be priced as a luxury good but considered a customer right”.",
+      "explain": "日志功能不额外收费；消除隐藏费用；支持开放标准；提供升级工具；把安全视作客户权利而非奢侈品。",
+      "prediction": "supplier pricing/business policy examples of Secure by Design. / 识别商业制度和收费方式如何体现安全设计。",
+      "question": "Which is listed as a Pro Security Business Practice? (A) Charge extra for logging (B) Provide logging at no additional charges (C) Hide upgrade tooling."
+    },
+    "source": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82",
+    "retrievedAt": "2026-10-20",
+    "reason": "旧版字段标签解析遗漏；从现有 Notion 笔记补回，非 AI 新生成"
+  },
+  {
+    "id": "M4-N028",
+    "fields": {
+      "slide_wording": "“Every technology provider must take ownership at the executive level to ensure their products are secure by design”.",
+      "explain": "技术提供商应在高层管理层面承担责任，确保产品以安全设计原则开发。",
+      "prediction": "identify who must take ownership for secure-by-design products. / 管理层安全责任主体判断。",
+      "question": "At what level should technology providers take ownership of secure-by-design outcomes? (A) Executive level (B) End user only (C) No one."
+    },
+    "source": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c",
+    "retrievedAt": "2026-10-20",
+    "reason": "旧版字段标签解析遗漏；从现有 Notion 笔记补回，非 AI 新生成"
+  }
+]

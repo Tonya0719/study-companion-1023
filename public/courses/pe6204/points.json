@@ -1,0 +1,2098 @@
+[
+  {
+    "id": "M1-N001",
+    "module": 1,
+    "priority": "Very Important",
+    "pages": [
+      13,
+      14
+    ],
+    "page": 13,
+    "title": "Cybersecurity Terminologies",
+    "slide_wording": "Adversary; Attack (Exploit); Countermeasure; Risk; Security Policy; System Resource (Asset); Threat; Vulnerability",
+    "explain": "老师第14页将 Vulnerability 定义为可能被威胁源利用的系统、程序或控制弱点。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which term means a weakness exploitable by a threat source?",
+    "answer": "Vulnerability",
+    "review": "老师第14页将 Vulnerability 定义为可能被威胁源利用的系统、程序或控制弱点。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N002",
+    "module": 1,
+    "priority": "Very Important",
+    "pages": [
+      16
+    ],
+    "page": 16,
+    "title": "Security Principles (CIA Triad)",
+    "slide_wording": "Confidentiality; Integrity; Availability",
+    "explain": "完整性 Integrity 关注信息不被未经授权修改；不要与机密性混淆。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which CIA principle concerns protecting information against unauthorized modification?",
+    "answer": "Integrity",
+    "review": "完整性 Integrity 关注信息不被未经授权修改；不要与机密性混淆。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N003",
+    "module": 1,
+    "priority": "Very Important",
+    "pages": [
+      24
+    ],
+    "page": 24,
+    "title": "Cyber Threats",
+    "slide_wording": "potential security harm to an asset; capable of exploiting vulnerabilities",
+    "explain": "第24页强调 potential security harm，威胁是潜在风险，不等于已经发生的攻击。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Does the term Threat necessarily mean an attack has already succeeded?",
+    "answer": "No",
+    "review": "第24页强调 potential security harm，威胁是潜在风险，不等于已经发生的攻击。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N004",
+    "module": 1,
+    "priority": "Very Important",
+    "pages": [
+      66
+    ],
+    "page": 66,
+    "title": "Mitigation Strategies",
+    "slide_wording": "Security Policy — What?; Security Implementation — How?; Assurance & Evaluation — Does it really work?",
+    "explain": "直接对应老师第66页的 Does it really work?。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which element checks whether the security scheme works?",
+    "answer": "Assurance & Evaluation",
+    "review": "直接对应老师第66页的 Does it really work?。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N005",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      4
+    ],
+    "page": 4,
+    "title": "What is Cybersecurity?",
+    "slide_wording": "protect individuals, organizations and governments from digital attacks",
+    "explain": "第4页引用 CISCO 定义，强调网络化系统和数据的保护。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What does cybersecurity aim to protect against?",
+    "answer": "Digital attacks",
+    "review": "第4页引用 CISCO 定义，强调网络化系统和数据的保护。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N006",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      8,
+      9,
+      10
+    ],
+    "page": 8,
+    "title": "Security Breaches",
+    "slide_wording": "Security Breaches; Consequences of a Data / Security Breach; Challenges in Cybersecurity",
+    "explain": "第8页以 unauthorized access 为定义核心，第9–10页解释影响和挑战。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which term describes unauthorized access to data or services?",
+    "answer": "Security breach",
+    "review": "第8页以 unauthorized access 为定义核心，第9–10页解释影响和挑战。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N007",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      15,
+      17,
+      18
+    ],
+    "page": 15,
+    "title": "Security Concepts and Relationships / Additional Principles",
+    "slide_wording": "Security concepts and relationships; Authenticity; Non-Repudiation",
+    "explain": "第17页补充 CIA 以外的安全原则。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which term means that an originator cannot later deny an action?",
+    "answer": "Non-Repudiation",
+    "review": "第17页补充 CIA 以外的安全原则。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N008",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      20,
+      21
+    ],
+    "page": 20,
+    "title": "Cyber Threats, Attacks and Vulnerabilities",
+    "slide_wording": "Cyber Threats, Attacks and Vulnerabilities; Types of Attacker",
+    "explain": "第21页按攻击者进行分类，需回看该页具体类别。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which topic compares attacker categories and intentions?",
+    "answer": "Types of Attacker",
+    "review": "第21页按攻击者进行分类，需回看该页具体类别。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N009",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      28
+    ],
+    "page": 28,
+    "title": "Mode of Attacks",
+    "slide_wording": "Passive Attack; Active Attack",
+    "explain": "第28页区分被动和主动模式。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Is eavesdropping generally a passive or active attack?",
+    "answer": "Passive Attack",
+    "review": "第28页区分被动和主动模式。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N010",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      29,
+      30
+    ],
+    "page": 29,
+    "title": "Attack Surface Categories",
+    "slide_wording": "Attack Surfaces; Network Attack Surface; Software Attack Surface; Human Attack Surface",
+    "explain": "第29–30页把可接触、可利用的漏洞界面按类别整理。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "A phishing employee is associated with which attack surface?",
+    "answer": "Human Attack Surface",
+    "review": "第29–30页把可接触、可利用的漏洞界面按类别整理。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N011",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      32,
+      34,
+      35,
+      36
+    ],
+    "page": 32,
+    "title": "Software Attack – Malwares",
+    "slide_wording": "Malwares; Virus; Spyware; Backdoor; Rootkit",
+    "explain": "第36页列出 Backdoor；需同时辨认 Virus、Spyware 等。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which malware category provides a concealed route bypassing ordinary access?",
+    "answer": "Backdoor",
+    "review": "第36页列出 Backdoor；需同时辨认 Virus、Spyware 等。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N012",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      44
+    ],
+    "page": 44,
+    "title": "Social Engineering",
+    "slide_wording": "Spam; Phishing; social engineering",
+    "explain": "第44页将这些归在社工方式下。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "A deceptive message tricks a person into revealing credentials: which attack category?",
+    "answer": "Social engineering / phishing",
+    "review": "第44页将这些归在社工方式下。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N013",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      46,
+      47
+    ],
+    "page": 46,
+    "title": "Password Cracking / Attack Methods",
+    "slide_wording": "Spraying; Dictionary; Rainbow",
+    "explain": "第46页介绍 spraying，第47页涉及 rainbow。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which method tries a common password over many accounts?",
+    "answer": "Password spraying",
+    "review": "第46页介绍 spraying，第47页涉及 rainbow。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N014",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      51,
+      57
+    ],
+    "page": 51,
+    "title": "DNS Poisoning / MITM",
+    "slide_wording": "DNS Poisoning; Man-in-the-Middle Attack",
+    "explain": "第51页是 DNS poisoning；第57页是 MITM，不能互换。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which term refers to tampering with DNS information to misdirect requests?",
+    "answer": "DNS Poisoning",
+    "review": "第51页是 DNS poisoning；第57页是 MITM，不能互换。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N015",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      60,
+      61,
+      63
+    ],
+    "page": 60,
+    "title": "Cloud Security Concern & Threats",
+    "slide_wording": "Availability; Auditability; Part 2 Summary",
+    "explain": "第61页以 Availability 为云安全关注点之一。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which term describes whether cloud services can be accessed when required?",
+    "answer": "Availability",
+    "review": "第61页以 Availability 为云安全关注点之一。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N016",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      67,
+      68,
+      70,
+      72
+    ],
+    "page": 67,
+    "title": "Mitigation / Policy",
+    "slide_wording": "Security Policy; Assurance & Evaluation; Key elements in Security Policy",
+    "explain": "第70页为 Security Policy，第72页列组成要素。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which concept states criteria constraining activities for security?",
+    "answer": "Security Policy",
+    "review": "第70页为 Security Policy，第72页列组成要素。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N017",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      83,
+      85
+    ],
+    "page": 83,
+    "title": "Prevention & Mitigation",
+    "slide_wording": "Prevention & Mitigation; Software Security by Developers",
+    "explain": "第85页将开发者的软件安全纳入预防与缓解。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "At which stage should developers implement preventive controls?",
+    "answer": "During software development",
+    "review": "第85页将开发者的软件安全纳入预防与缓解。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N018",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      87,
+      91,
+      96
+    ],
+    "page": 87,
+    "title": "Authentication and Authorization",
+    "slide_wording": "Authentication; Authorization; Access Control Entities",
+    "explain": "第87与91页分别讲认证和授权；第96页讲访问控制实体。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which one verifies identity rather than permissions?",
+    "answer": "Authentication",
+    "review": "第87与91页分别讲认证和授权；第96页讲访问控制实体。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N019",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      99
+    ],
+    "page": 99,
+    "title": "Encryption",
+    "slide_wording": "Encryption",
+    "explain": "第99页为加密基础概念。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What is used to protect data by converting it into a cryptographically protected form?",
+    "answer": "Encryption",
+    "review": "第99页为加密基础概念。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N020",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      103
+    ],
+    "page": 103,
+    "title": "Pen Testing",
+    "slide_wording": "Pen Testers by Organizations",
+    "explain": "第103页专门介绍组织中的渗透测试。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which security practice proactively tests for exploitable weaknesses?",
+    "answer": "Penetration testing",
+    "review": "第103页专门介绍组织中的渗透测试。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N021",
+    "module": 1,
+    "priority": "Important",
+    "pages": [
+      115,
+      122
+    ],
+    "page": 115,
+    "title": "Detection, Response & Recovery",
+    "slide_wording": "Detect, Response & Recovery; Part 3 Summary",
+    "explain": "第115页的主题是检测、响应及恢复，第122页总结。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which phase deals with security incidents after detection?",
+    "answer": "Response and recovery",
+    "review": "第115页的主题是检测、响应及恢复，第122页总结。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M2-N001",
+    "module": 2,
+    "priority": "Very Important",
+    "pages": [
+      14
+    ],
+    "page": 14,
+    "title": "Recap – What is Cyber Threats?",
+    "slide_wording": "Any circumstance or event with the potential to adversely impact organizational operations, assets, or individuals",
+    "explain": "老师第14页引用 NIST 定义，强调潜在不利影响。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What word signals a threat need not yet be realized?",
+    "answer": "Potential",
+    "review": "老师第14页引用 NIST 定义，强调潜在不利影响。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N002",
+    "module": 2,
+    "priority": "Very Important",
+    "pages": [
+      38
+    ],
+    "page": 38,
+    "title": "Modern AI Supply Chains (actors)",
+    "slide_wording": "Provider: data curation, algorithmic development, design, deployment, maintenance; User: inputs and outputs",
+    "explain": "第38页区分 Provider 和 User。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which party supplies inputs and receives outputs?",
+    "answer": "User",
+    "review": "第38页区分 Provider 和 User。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N003",
+    "module": 2,
+    "priority": "Very Important",
+    "pages": [
+      39
+    ],
+    "page": 39,
+    "title": "Modern AI Supply Chains (responsibility)",
+    "slide_wording": "limited visibility and/or expertise; providers of AI components should take responsibility for security outcomes of downstream users",
+    "explain": "第39页明确强调下游用户安全结果的责任。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Should an upstream AI component provider ignore the security consequences faced by downstream users?",
+    "answer": "No",
+    "review": "第39页明确强调下游用户安全结果的责任。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N004",
+    "module": 2,
+    "priority": "Important",
+    "pages": [
+      16,
+      17
+    ],
+    "page": 16,
+    "title": "AI and software engineering",
+    "slide_wording": "AI suffers from software engineering issues",
+    "explain": "老师第16–17页直接以此为主题。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Does using AI eliminate conventional software engineering risk?",
+    "answer": "No",
+    "review": "老师第16–17页直接以此为主题。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N005",
+    "module": 2,
+    "priority": "Important",
+    "pages": [
+      18,
+      19,
+      20,
+      21
+    ],
+    "page": 18,
+    "title": "AI development and deployment issues",
+    "slide_wording": "Other Common Threats/Security Issues of AI Development & Deployment for Organizations",
+    "explain": "第18–21页讨论开发和部署时的组织风险；完整类别请核对原页。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Where should security assessment take place: only in production or also during development?",
+    "answer": "During development and deployment",
+    "review": "第18–21页讨论开发和部署时的组织风险；完整类别请核对原页。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N006",
+    "module": 2,
+    "priority": "Important",
+    "pages": [
+      24,
+      25
+    ],
+    "page": 24,
+    "title": "AI-powered Systems / ML Applications",
+    "slide_wording": "AI-powered Systems / ML Applications",
+    "explain": "第24–25页为 AI/ML 系统的相关风险背景。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which system category is considered in these slides?",
+    "answer": "AI-powered Systems / ML Applications",
+    "review": "第24–25页为 AI/ML 系统的相关风险背景。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N007",
+    "module": 2,
+    "priority": "Important",
+    "pages": [
+      29
+    ],
+    "page": 29,
+    "title": "Issues & challenges when developing AI systems",
+    "slide_wording": "Issues & challenges when developing AI systems",
+    "explain": "第29页直接按开发阶段说明挑战。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which lifecycle stage do these issues concern?",
+    "answer": "AI system development",
+    "review": "第29页直接按开发阶段说明挑战。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N008",
+    "module": 2,
+    "priority": "Important",
+    "pages": [
+      42
+    ],
+    "page": 42,
+    "title": "Guidelines, Best Practices and Frameworks",
+    "slide_wording": "Guidelines, Best Practices and Frameworks",
+    "explain": "第42页总述不同规范文件。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which materials organize recommended security practices rather than representing a model itself?",
+    "answer": "Guidelines, Best Practices and Frameworks",
+    "review": "第42页总述不同规范文件。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N009",
+    "module": 2,
+    "priority": "Important",
+    "pages": [
+      52
+    ],
+    "page": 52,
+    "title": "Guidelines for Secure AI System Development",
+    "slide_wording": "Guidelines for Secure AI System Development",
+    "explain": "第52页作为 NCSC 指南入口。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which document family guides securing the AI lifecycle?",
+    "answer": "Guidelines for Secure AI System Development",
+    "review": "第52页作为 NCSC 指南入口。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N010",
+    "module": 2,
+    "priority": "Important",
+    "pages": [
+      53
+    ],
+    "page": 53,
+    "title": "Secure by Design",
+    "slide_wording": "Secure by Design",
+    "explain": "第53页承接后续第三章。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What principle recommends including security from the outset of design?",
+    "answer": "Secure by Design",
+    "review": "第53页承接后续第三章。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N011",
+    "module": 2,
+    "priority": "Important",
+    "pages": [
+      55,
+      56
+    ],
+    "page": 55,
+    "title": "NIST 800-218 and 800-218A",
+    "slide_wording": "Secure Software Development Framework (SSDF) V1.1; Secure Software Development Practices for Generative AI and Dual-Use Foundation Models",
+    "explain": "第55–56页分别引入基础 SSDF 及 AI 专用增补。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which NIST document is specifically extended for Generative AI and dual-use foundation models?",
+    "answer": "SP 800-218A",
+    "review": "第55–56页分别引入基础 SSDF 及 AI 专用增补。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N012",
+    "module": 2,
+    "priority": "Important",
+    "pages": [
+      57
+    ],
+    "page": 57,
+    "title": "ISO/IEC Standards",
+    "slide_wording": "Standards – ISO/IEC",
+    "explain": "第57页介绍 ISO/IEC 标准。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which standard on this slide covers the Artificial Intelligence Management System?",
+    "answer": "ISO/IEC 42001",
+    "review": "第57页介绍 ISO/IEC 标准。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M3-N001",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      4
+    ],
+    "page": 4,
+    "title": "Generic Secure Design Principles",
+    "slide_wording": "Secure by Design; Raise staff awareness; Model threats; Design for security as well as functionality and performance",
+    "explain": "第4页列为 actionable executions。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which activity anticipates threats before implementation?",
+    "answer": "Threat modelling",
+    "review": "第4页列为 actionable executions。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N002",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      9
+    ],
+    "page": 9,
+    "title": "Secure by Design Core Principles",
+    "slide_wording": "Secure by Design Core Principles",
+    "explain": "第9页引入核心原则，下一页分别说明。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What is the overarching principle addressed?",
+    "answer": "Secure by Design",
+    "review": "第9页引入核心原则，下一页分别说明。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N003",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      12
+    ],
+    "page": 12,
+    "title": "Secure by Default Practices",
+    "slide_wording": "Eliminate Default Password; Conduct Field Test; Reduce Hardening Guide Size; Discourage unsafe legacy features",
+    "explain": "第12页默认安全实践。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which measure removes a predictable built-in credential?",
+    "answer": "Eliminate Default Password",
+    "review": "第12页默认安全实践。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N004",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      13
+    ],
+    "page": 13,
+    "title": "Secure Product Development Practices",
+    "slide_wording": "Document conformance to Secure SDLC Framework",
+    "explain": "第13页安全产品开发实践。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which practice documents how software development conforms to an SDLC security framework?",
+    "answer": "Document conformance to Secure SDLC Framework",
+    "review": "第13页安全产品开发实践。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N005",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      14
+    ],
+    "page": 14,
+    "title": "Pro Security Business Practices",
+    "slide_wording": "Pro Security Business Practices",
+    "explain": "第14页单独列出业务侧实践。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which practice group addresses the organization's business arrangements?",
+    "answer": "Pro Security Business Practices",
+    "review": "第14页单独列出业务侧实践。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N006",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      19
+    ],
+    "page": 19,
+    "title": "Secure by Default / transparency",
+    "slide_wording": "Publish aggregate security-relevant statistics and trends",
+    "explain": "第19页开始说明透明度实践。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which transparency measure publishes aggregate security trends?",
+    "answer": "Publishing aggregate security-relevant statistics",
+    "review": "第19页开始说明透明度实践。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N007",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      20
+    ],
+    "page": 20,
+    "title": "Secure Product Development for transparency",
+    "slide_wording": "Establish internal security; Secure Product Development Practices",
+    "explain": "第20页归类产品开发透明性措施。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which practice class addresses product-development accountability?",
+    "answer": "Secure Product Development Practices",
+    "review": "第20页归类产品开发透明性措施。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N008",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      21
+    ],
+    "page": 21,
+    "title": "Pro Security Business transparency",
+    "slide_wording": "Pro Security Business Practices",
+    "explain": "第21页为业务侧实践。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which set of measures concerns business accountability?",
+    "answer": "Pro Security Business Practices",
+    "review": "第21页为业务侧实践。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N009",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      24
+    ],
+    "page": 24,
+    "title": "Lead from the Top — demonstrations",
+    "slide_wording": "Include secure by design in corporate reports; Provide reports to the board; Create meaningful internal incentives",
+    "explain": "第24页列出管理层行动。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which action demonstrates board-level security accountability?",
+    "answer": "Regular reports to the board of directors",
+    "review": "第24页列出管理层行动。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N010",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      27
+    ],
+    "page": 27,
+    "title": "Threat Modelling",
+    "slide_wording": "Threat Modelling",
+    "explain": "第27页专题讲解，下一页有 Agentic AI 示例。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What practice models adversaries, attack paths and system risk?",
+    "answer": "Threat Modelling",
+    "review": "第27页专题讲解，下一页有 Agentic AI 示例。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N011",
+    "module": 3,
+    "priority": "Important",
+    "pages": [
+      32
+    ],
+    "page": 32,
+    "title": "AI-specific user interaction",
+    "slide_wording": "decisions around user interaction are informed by AI-specific risks",
+    "explain": "第32页关注用户交互与安全风险。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which factor should inform interaction design?",
+    "answer": "AI-specific risks",
+    "review": "第32页关注用户交互与安全风险。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M4-N001",
+    "module": 4,
+    "priority": "Very Important",
+    "pages": [
+      12
+    ],
+    "page": 12,
+    "title": "NIST SSDF V1.1 — Aims",
+    "slide_wording": "Prepare the Organization (PO); Protect the Software (PS); Produce Well-Secured Software (PW); Respond to Vulnerabilities (RV)",
+    "explain": "第12页直接列出四个 aims。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which SSDF practice group addresses vulnerabilities once identified?",
+    "answer": "Respond to Vulnerabilities (RV)",
+    "review": "第12页直接列出四个 aims。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N002",
+    "module": 4,
+    "priority": "Very Important",
+    "pages": [
+      13
+    ],
+    "page": 13,
+    "title": "NIST SSDF V1.1 — Outcome focus",
+    "slide_wording": "The SSDF does not prescribe specifically how to implement each practice; focus is on the outcomes",
+    "explain": "第13页强调框架是结果导向而非工具导向。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Does SSDF require a particular implementation technique?",
+    "answer": "No",
+    "review": "第13页强调框架是结果导向而非工具导向。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N003",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      5,
+      6
+    ],
+    "page": 5,
+    "title": "Secured Supply Chain",
+    "slide_wording": "Secured Supply Chain; NCSC 12 Principles of Supply Chain Guidance",
+    "explain": "第5–6页为供应链安全与 NCSC 指南。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which part of an AI system should be assessed across suppliers?",
+    "answer": "Supply chain security",
+    "review": "第5–6页为供应链安全与 NCSC 指南。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N004",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      9
+    ],
+    "page": 9,
+    "title": "Documentation",
+    "slide_wording": "Document creation, operation and lifecycle management of models, datasets and prompts",
+    "explain": "第9页要求记录模型、数据和提示词等。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which artifacts are important to document besides models?",
+    "answer": "Datasets and prompts",
+    "review": "第9页要求记录模型、数据和提示词等。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N005",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      14
+    ],
+    "page": 14,
+    "title": "NIST SSDF detailed practices",
+    "slide_wording": "NIST 800-218 SSDF V1.1",
+    "explain": "第14页继续第12–13页框架内容。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What document organizes PO, PS, PW and RV?",
+    "answer": "NIST SP 800-218 SSDF",
+    "review": "第14页继续第12–13页框架内容。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N006",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      15,
+      16
+    ],
+    "page": 15,
+    "title": "NIST SP 800-218A AI extensions",
+    "slide_wording": "Secure Software Development Practices for Generative AI and Dual-Use Foundation Models",
+    "explain": "第15–16页标题明确。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which document extends SSDF for Generative AI systems?",
+    "answer": "NIST SP 800-218A",
+    "review": "第15–16页标题明确。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N007",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      23,
+      24
+    ],
+    "page": 23,
+    "title": "Security Attack on GenAI-powered systems",
+    "slide_wording": "OWASP Gen AI Security Project; security attack risks",
+    "explain": "第23–24页引出 OWASP 分组。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which project provides GenAI/LLM risk categories?",
+    "answer": "OWASP Gen AI Security Project",
+    "review": "第23–24页引出 OWASP 分组。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N008",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      52
+    ],
+    "page": 52,
+    "title": "MITRE ATLAS",
+    "slide_wording": "Adversarial Threat Landscape for AI Systems (ATLAS)",
+    "explain": "第52页明确 ATLAS 全称。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What is the name of MITRE's AI-focused adversarial knowledge base?",
+    "answer": "ATLAS",
+    "review": "第52页明确 ATLAS 全称。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N009",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      62
+    ],
+    "page": 62,
+    "title": "GenAI Red Teaming Guide",
+    "slide_wording": "GenAI Red Teaming Guide",
+    "explain": "第62页引入指南。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What security testing approach probes AI systems adversarially?",
+    "answer": "GenAI Red Teaming",
+    "review": "第62页引入指南。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N010",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      65
+    ],
+    "page": 65,
+    "title": "GenAI Red Teaming Strategy",
+    "slide_wording": "GenAI Red Teaming Strategy",
+    "explain": "第65页将策略作为独立内容。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What should be planned before execution of a red-team exercise?",
+    "answer": "The red-teaming strategy",
+    "review": "第65页将策略作为独立内容。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N011",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      66
+    ],
+    "page": 66,
+    "title": "Team Composition and Expertise",
+    "slide_wording": "Team Composition and Expertise",
+    "explain": "第66页是团队构成。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which aspect of a red-team engagement concerns the team's skills and disciplines?",
+    "answer": "Team Composition and Expertise",
+    "review": "第66页是团队构成。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N012",
+    "module": 4,
+    "priority": "Important",
+    "pages": [
+      67
+    ],
+    "page": 67,
+    "title": "Threat Modelling",
+    "slide_wording": "Threat Modelling",
+    "explain": "第67页专题介绍。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What practice systematically identifies system threats and attack surfaces?",
+    "answer": "Threat Modelling",
+    "review": "第67页专题介绍。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M5-N001",
+    "module": 5,
+    "priority": "Important",
+    "pages": [
+      5
+    ],
+    "page": 5,
+    "title": "Realtime Threats",
+    "slide_wording": "Realtime Threats",
+    "explain": "第5页列出实时威胁主题。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which security concern must be assessed during live operation?",
+    "answer": "Realtime Threats",
+    "review": "第5页列出实时威胁主题。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N002",
+    "module": 5,
+    "priority": "Important",
+    "pages": [
+      15
+    ],
+    "page": 15,
+    "title": "Incident Management Procedure",
+    "slide_wording": "Incident Management Procedure",
+    "explain": "第15页为事件管理程序。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which process defines handling of security incidents?",
+    "answer": "Incident Management Procedure",
+    "review": "第15页为事件管理程序。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N003",
+    "module": 5,
+    "priority": "Important",
+    "pages": [
+      16
+    ],
+    "page": 16,
+    "title": "Release AI Responsibly",
+    "slide_wording": "Release AI Responsibly",
+    "explain": "第16页为负责任发布。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What principle governs introducing AI into operational use?",
+    "answer": "Release AI Responsibly",
+    "review": "第16页为负责任发布。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N004",
+    "module": 5,
+    "priority": "Important",
+    "pages": [
+      21
+    ],
+    "page": 21,
+    "title": "Monitor System’s Behaviour",
+    "slide_wording": "Monitor System’s Behaviour",
+    "explain": "第21页讲系统行为监控。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which activity observes outputs and performance after deployment?",
+    "answer": "Monitoring system behaviour",
+    "review": "第21页讲系统行为监控。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N005",
+    "module": 5,
+    "priority": "Important",
+    "pages": [
+      22
+    ],
+    "page": 22,
+    "title": "Monitor System’s Input",
+    "slide_wording": "Monitor System’s Input",
+    "explain": "第22页讲输入监控。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which operational activity checks the requests or data entering an AI system?",
+    "answer": "Monitoring system input",
+    "review": "第22页讲输入监控。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N006",
+    "module": 5,
+    "priority": "Important",
+    "pages": [
+      25
+    ],
+    "page": 25,
+    "title": "Collect and share lessons learned",
+    "slide_wording": "Collect and share lessons learned",
+    "explain": "第25页为经验收集与共享。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which action feeds incident findings back into future security practice?",
+    "answer": "Collect and share lessons learned",
+    "review": "第25页为经验收集与共享。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M1-N022",
+    "module": 1,
+    "priority": "Others",
+    "pages": [
+      5,
+      6,
+      7,
+      11,
+      12
+    ],
+    "page": 5,
+    "title": "Motivation, data and preparation",
+    "slide_wording": "Why Cybersecurity? What to Protect?; Personal Data; Terminologies",
+    "explain": "第5–7页介绍数据价值，第11–12页引入术语。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which type of asset is highlighted in the chapter's motivation?",
+    "answer": "Personal data",
+    "review": "第5–7页介绍数据价值，第11–12页引入术语。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N023",
+    "module": 1,
+    "priority": "Others",
+    "pages": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "page": 22,
+    "title": "Attack actors and consequences",
+    "slide_wording": "Cyberwarfare; Vulnerabilities; Types of Threat; Threat Consequences and Threat Actions",
+    "explain": "第22页介绍 Cyberwarfare。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which slide topic concerns state-level cyber conflict?",
+    "answer": "Cyberwarfare",
+    "review": "第22页介绍 Cyberwarfare。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N024",
+    "module": 1,
+    "priority": "Others",
+    "pages": [
+      31,
+      33,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "page": 31,
+    "title": "Injection attacks and malware incidents",
+    "slide_wording": "WannaCry; Injection Attack; SQL Injection; Script/Code Injection; Human Attack Examples",
+    "explain": "第38–41页按注入攻击展开。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What is the attack family illustrated by SQL Injection?",
+    "answer": "Injection Attack",
+    "review": "第38–41页按注入攻击展开。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N025",
+    "module": 1,
+    "priority": "Others",
+    "pages": [
+      45,
+      48,
+      49,
+      50,
+      52,
+      53,
+      54,
+      55,
+      56,
+      58,
+      59,
+      62
+    ],
+    "page": 45,
+    "title": "Human, network, DNS and IoT examples",
+    "slide_wording": "Password Cracking; DoS; DNS Cached/Uncached; SEO Poisoning; Wireless Network Security; Cloud Computing; IoT",
+    "explain": "第50页是 DoS，第52–54页为 DNS 流程示例。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What attack denies legitimate users access to a service?",
+    "answer": "Denial of Service (DoS)",
+    "review": "第50页是 DoS，第52–54页为 DNS 流程示例。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N026",
+    "module": 1,
+    "priority": "Others",
+    "pages": [
+      69,
+      71,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      84,
+      86,
+      88,
+      89,
+      90,
+      92,
+      93,
+      94,
+      95,
+      97,
+      98
+    ],
+    "page": 69,
+    "title": "Security planning and operations",
+    "slide_wording": "Security Policy; Implementation; Risk Management; Secure Development; Operations; Compliance; User Training; Authentication; Authorization",
+    "explain": "第87–98页为身份认证和权限控制的连续说明。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What is checked before a user is granted permissions?",
+    "answer": "Authentication",
+    "review": "第87–98页为身份认证和权限控制的连续说明。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N027",
+    "module": 1,
+    "priority": "Others",
+    "pages": [
+      100,
+      101,
+      102,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114
+    ],
+    "page": 100,
+    "title": "Cryptography, network and cloud defense",
+    "slide_wording": "Symmetric/Asymmetric Encryption; Firewall; DMZ; IDS; IPS; Cloud/IoT; End User Security",
+    "explain": "第106页为 IDS、第107页为 IPS；需要区分。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which system detects suspicious intrusion without necessarily preventing it?",
+    "answer": "IDS",
+    "review": "第106页为 IDS、第107页为 IPS；需要区分。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N028",
+    "module": 1,
+    "priority": "Others",
+    "pages": [
+      116,
+      117,
+      118,
+      119,
+      120,
+      121
+    ],
+    "page": 116,
+    "title": "Security operations roles",
+    "slide_wording": "SOC; SIEM; SOAR; Security Infrastructure Engineering; Threat Intelligence; Incident Response Team",
+    "explain": "第117页给出 SIEM，其他页介绍配套团队和流程。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which system consolidates security information and events?",
+    "answer": "SIEM",
+    "review": "第117页给出 SIEM，其他页介绍配套团队和流程。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M1-N029",
+    "module": 1,
+    "priority": "Others",
+    "pages": [
+      65
+    ],
+    "page": 65,
+    "title": "M1 p.65 — Cyber Defense / 网络防御与剩余风险（Others）",
+    "slide_wording": "",
+    "explain": "M1 p.65 explicitly states “Goal is to minimize residual level of risk to the assets”. / 原文明确是最小化，而不是彻底消除。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "",
+    "answer": "B.",
+    "review": "M1 p.65 explicitly states “Goal is to minimize residual level of risk to the assets”. / 原文明确是最小化，而不是彻底消除。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1"
+  },
+  {
+    "id": "M2-N013",
+    "module": 2,
+    "priority": "Others",
+    "pages": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "page": 4,
+    "title": "Motivation and use cases",
+    "slide_wording": "Why AI Security is Important?; Software Engineering Context; UC1: Using AI to Create Code; UC2: Developing an AI-system",
+    "explain": "第8–10页讲 UC1，第11–12页讲 UC2。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which use case concerns coding assistants?",
+    "answer": "UC1",
+    "review": "第8–10页讲 UC1，第11–12页讲 UC2。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N014",
+    "module": 2,
+    "priority": "Others",
+    "pages": [
+      15,
+      22,
+      23,
+      26,
+      27,
+      28,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37
+    ],
+    "page": 15,
+    "title": "Risk framing and AI distinction",
+    "slide_wording": "Types of Threats; SDLC vs AIDLC; AI-powered Systems; OWASP; MITRE ATLAS; Security Attack on GenAI-powered systems",
+    "explain": "第33–34页为 ATLAS，第35–36页为 OWASP。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which resource is named for AI adversary attack tactics?",
+    "answer": "MITRE ATLAS",
+    "review": "第33–34页为 ATLAS，第35–36页为 OWASP。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N015",
+    "module": 2,
+    "priority": "Others",
+    "pages": [
+      40,
+      41,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      54
+    ],
+    "page": 40,
+    "title": "Guide taxonomy and frameworks",
+    "slide_wording": "Hierarchy of Strength; AI Readiness; NIST AI RMF; Model AI Governance Framework; Secure by Design",
+    "explain": "第48–49页为该框架。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk governance resource is titled NIST AI Risk Management Framework?",
+    "answer": "NIST AI RMF",
+    "review": "第48–49页为该框架。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M2-N016",
+    "module": 2,
+    "priority": "Others",
+    "pages": [
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65
+    ],
+    "page": 58,
+    "title": "AI lifecycle and course roadmap",
+    "slide_wording": "ISO/IEC 5338:2023 – AI Lifecycle; Secure AI System Development Lifecycle; Design; Development; Deployment; Operation & Maintenance",
+    "explain": "第58–60页解释生命周期，第61–65页展开本课程采用的阶段。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which ISO/IEC standard in the slides specifically addresses the AI Lifecycle?",
+    "answer": "ISO/IEC 5338:2023",
+    "review": "第58–60页解释生命周期，第61–65页展开本课程采用的阶段。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76"
+  },
+  {
+    "id": "M3-N012",
+    "module": 3,
+    "priority": "Others",
+    "pages": [
+      5,
+      6,
+      7,
+      8,
+      10,
+      11
+    ],
+    "page": 5,
+    "title": "Why Secure by Design and Principle 1",
+    "slide_wording": "Secure by Design; Three Core Principles; Take Ownership of Customer Security Outcomes",
+    "explain": "第10–11页介绍第一条原则。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Who should take ownership of customer security outcomes?",
+    "answer": "Technology providers / manufacturers",
+    "review": "第10–11页介绍第一条原则。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N013",
+    "module": 3,
+    "priority": "Others",
+    "pages": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "page": 15,
+    "title": "Principle 2 and explanation",
+    "slide_wording": "Embrace Radical Transparency and Accountability; Transparency helps the industry establish conventions",
+    "explain": "第15–18页介绍第二条原则。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which principle favors publishing security-relevant information for accountability?",
+    "answer": "Embrace Radical Transparency and Accountability",
+    "review": "第15–18页介绍第二条原则。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N014",
+    "module": 3,
+    "priority": "Others",
+    "pages": [
+      22,
+      23
+    ],
+    "page": 22,
+    "title": "Principle 3 and leadership",
+    "slide_wording": "Lead from the Top",
+    "explain": "第22–23页为第三原则。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "At what organizational level must secure-by-design leadership start?",
+    "answer": "Senior organizational leadership",
+    "review": "第22–23页为第三原则。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N015",
+    "module": 3,
+    "priority": "Others",
+    "pages": [
+      25,
+      26,
+      28
+    ],
+    "page": 25,
+    "title": "Actionable executions and AI threat modeling",
+    "slide_wording": "Staff Awareness; Agentic AI App Threat Modelling",
+    "explain": "第28页使用 Agentic AI 示例。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What AI system example is used to illustrate threat modeling?",
+    "answer": "Agentic AI App",
+    "review": "第28页使用 Agentic AI 示例。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N016",
+    "module": 3,
+    "priority": "Others",
+    "pages": [
+      29,
+      30,
+      31,
+      33,
+      34,
+      35
+    ],
+    "page": 29,
+    "title": "Balancing security, functionality and model choice",
+    "slide_wording": "Balancing between Security and Functionality; Security Benefits and Trade-Offs; Consideration when choosing AI Model",
+    "explain": "第29–35页是风险与产品功能的权衡。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What two priorities are explicitly balanced in these slides?",
+    "answer": "Security and Functionality",
+    "review": "第29–35页是风险与产品功能的权衡。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N017",
+    "module": 3,
+    "priority": "Others",
+    "pages": [
+      36,
+      37,
+      38
+    ],
+    "page": 36,
+    "title": "ML/GenAI security principles and wrap-up",
+    "slide_wording": "Principles for the Security of ML/GenAI Projects; Secure by Design Tactics; Summary",
+    "explain": "第36–38页总结原则与实践。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "What project category do the stated principles address?",
+    "answer": "ML/GenAI Projects",
+    "review": "第36–38页总结原则与实践。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N018",
+    "module": 3,
+    "priority": "Others",
+    "pages": [
+      12
+    ],
+    "page": 12,
+    "title": "M3 p.12 — Secure by Default Practices / 默认安全实践",
+    "slide_wording": "",
+    "explain": "All three are listed verbatim on M3 p.12. / 以上均为第12页列出的实践。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "",
+    "answer": "A, B, C.",
+    "review": "All three are listed verbatim on M3 p.12. / 以上均为第12页列出的实践。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N019",
+    "module": 3,
+    "priority": "Others",
+    "pages": [
+      13
+    ],
+    "page": 13,
+    "title": "M3 p.13 — Secure Product Development Practices / 安全产品开发实践",
+    "slide_wording": "",
+    "explain": "Vulnerability Management is p.13; B is p.12; C is p.14. / 三个选项分别归属不同页面及分类。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "",
+    "answer": "A.",
+    "review": "Vulnerability Management is p.13; B is p.12; C is p.14. / 三个选项分别归属不同页面及分类。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M3-N020",
+    "module": 3,
+    "priority": "Others",
+    "pages": [
+      14
+    ],
+    "page": 14,
+    "title": "M3 p.14 — Pro Security Business Practices / 促进安全的商业实践",
+    "slide_wording": "",
+    "explain": "M3 p.14 explicitly requires logging without additional charges. / 第14页原文即如此要求。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "",
+    "answer": "B.",
+    "review": "M3 p.14 explicitly requires logging without additional charges. / 第14页原文即如此要求。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82"
+  },
+  {
+    "id": "M4-N013",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      4,
+      7,
+      8,
+      10
+    ],
+    "page": 4,
+    "title": "Core secure development tasks",
+    "slide_wording": "Identify, Track, and Protect Assets; Manage Technical Debt",
+    "explain": "第7–8页为资产管理，第10页为技术债务。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which practice records and protects system assets?",
+    "answer": "Identify, Track, and Protect Assets",
+    "review": "第7–8页为资产管理，第10页为技术债务。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N014",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      17,
+      18,
+      19
+    ],
+    "page": 17,
+    "title": "Detailed GenAI SSDF guidance",
+    "slide_wording": "NIST 800-218A",
+    "explain": "第17–19页为详细展开。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which NIST AI-specific publication continues across these slides?",
+    "answer": "SP 800-218A",
+    "review": "第17–19页为详细展开。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N015",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      20,
+      21,
+      22,
+      25
+    ],
+    "page": 20,
+    "title": "Recognizing risks and OWASP overview",
+    "slide_wording": "Recognizing Risks; OWASP Gen AI Security; LLM Interactive Risk Management",
+    "explain": "第22页介绍该项目。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which project is referenced for GenAI security risks?",
+    "answer": "OWASP Gen AI Security Project",
+    "review": "第22页介绍该项目。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N016",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      26,
+      27,
+      28,
+      29
+    ],
+    "page": 26,
+    "title": "LLM01: Prompt Injection",
+    "slide_wording": "Prompt Injection; Anatomy; Types; Mitigation",
+    "explain": "第26–29页依次讨论机理、类型和缓解。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which LLM risk exploits instructions embedded in model input or untrusted material?",
+    "answer": "Prompt Injection",
+    "review": "第26–29页依次讨论机理、类型和缓解。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N017",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      30,
+      31,
+      32
+    ],
+    "page": 30,
+    "title": "LLM02: Sensitive Information Disclosure",
+    "slide_wording": "Sensitive Information Disclosure; Mitigation",
+    "explain": "第30–32页讲敏感信息泄露与缓解。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk concerns exposing confidential information?",
+    "answer": "Sensitive Information Disclosure",
+    "review": "第30–32页讲敏感信息泄露与缓解。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N018",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      33,
+      34
+    ],
+    "page": 33,
+    "title": "LLM03: Excessive Agency",
+    "slide_wording": "Excessive Agency; Mitigation",
+    "explain": "第33–34页是过度代理权。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk concerns excessive delegated autonomy or privileges?",
+    "answer": "Excessive Agency",
+    "review": "第33–34页是过度代理权。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N019",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      35,
+      36
+    ],
+    "page": 35,
+    "title": "LLM04: Supply Chain",
+    "slide_wording": "Supply Chain; Mitigation",
+    "explain": "第35–36页为 LLM04。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk concerns dependencies and upstream components?",
+    "answer": "Supply Chain",
+    "review": "第35–36页为 LLM04。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N020",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      37,
+      38
+    ],
+    "page": 37,
+    "title": "LLM05: Data and Model Poisoning",
+    "slide_wording": "Data and Model Poisoning; Mitigation",
+    "explain": "第37–38页为 LLM05。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk involves contaminated model or training data?",
+    "answer": "Data and Model Poisoning",
+    "review": "第37–38页为 LLM05。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N021",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      39,
+      40
+    ],
+    "page": 39,
+    "title": "LLM06: Unbounded Consumption",
+    "slide_wording": "Unbounded Consumption; Mitigation",
+    "explain": "第39–40页为 LLM06。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk concerns uncontrolled resource use?",
+    "answer": "Unbounded Consumption",
+    "review": "第39–40页为 LLM06。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N022",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      41,
+      42
+    ],
+    "page": 41,
+    "title": "LLM07: Misinformation",
+    "slide_wording": "Misinformation; Mitigation",
+    "explain": "第41–42页为 LLM07。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk involves misleading or false model outputs?",
+    "answer": "Misinformation",
+    "review": "第41–42页为 LLM07。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N023",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      43,
+      44
+    ],
+    "page": 43,
+    "title": "LLM08: Hidden Context Exposure",
+    "slide_wording": "Hidden Context Exposure (System Prompt Leakage); Mitigation",
+    "explain": "第43–44页为 LLM08。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk includes leakage of hidden system prompts?",
+    "answer": "Hidden Context Exposure",
+    "review": "第43–44页为 LLM08。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N024",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      45,
+      46
+    ],
+    "page": 45,
+    "title": "LLM09: Vector and Embedding Weaknesses",
+    "slide_wording": "Vector and Embedding Weaknesses; Mitigation",
+    "explain": "第45–46页为 LLM09。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk concerns embedding/vector mechanisms?",
+    "answer": "Vector and Embedding Weaknesses",
+    "review": "第45–46页为 LLM09。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N025",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      47,
+      48
+    ],
+    "page": 47,
+    "title": "LLM10: Improper Output Handling",
+    "slide_wording": "Improper Output Handling; Mitigation",
+    "explain": "第47–48页为 LLM10。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which risk arises when downstream systems unsafely process model outputs?",
+    "answer": "Improper Output Handling",
+    "review": "第47–48页为 LLM10。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N026",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60
+    ],
+    "page": 49,
+    "title": "Attack chains and phases",
+    "slide_wording": "Attack Chains; 5 Attack Phases; Operation Shadow Whisper",
+    "explain": "第53–60页讲攻击阶段和虚构攻击故事。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which slides organize an attack as a sequence of tactics and phases?",
+    "answer": "Attack Chains / Attack Phases",
+    "review": "第53–60页讲攻击阶段和虚构攻击故事。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N027",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      61,
+      63,
+      64,
+      68,
+      69,
+      70
+    ],
+    "page": 61,
+    "title": "Red team execution and reporting",
+    "slide_wording": "GenAI Red Teaming Guide; Reconnaissance; Application Decomposition; Attack Modelling; Reporting; Continuous Improvement",
+    "explain": "第69页明确列出报告与改进。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which stage documents findings and feeds lessons into future testing?",
+    "answer": "Reporting and Continuous Improvement",
+    "review": "第69页明确列出报告与改进。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M4-N028",
+    "module": 4,
+    "priority": "Others",
+    "pages": [
+      11
+    ],
+    "page": 11,
+    "title": "M4 p.11 — Executive ownership in Secure Development / 安全开发的高层责任（Others）",
+    "slide_wording": "",
+    "explain": "This is explicitly written on M4 p.11; it also relates to M3 Lead from the Top. / 原文明确 executive level，并与第三章高层领导原则相呼应。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "",
+    "answer": "A.",
+    "review": "This is explicitly written on M4 p.11; it also relates to M3 Lead from the Top. / 原文明确 executive level，并与第三章高层领导原则相呼应。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c"
+  },
+  {
+    "id": "M5-N007",
+    "module": 5,
+    "priority": "Others",
+    "pages": [
+      4,
+      6
+    ],
+    "page": 4,
+    "title": "Secure deployment introduction",
+    "slide_wording": "Deploying AI Systems Securely; Secure Deployment",
+    "explain": "第4–6页为部署背景。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which phase is discussed when moving an AI system into production?",
+    "answer": "Secure Deployment",
+    "review": "第4–6页为部署背景。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N008",
+    "module": 5,
+    "priority": "Others",
+    "pages": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "page": 7,
+    "title": "Secured Infrastructure",
+    "slide_wording": "Secured Infrastructure",
+    "explain": "第7–10页以此为专题。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which layer of deployment involves infrastructure security?",
+    "answer": "Secured Infrastructure",
+    "review": "第7–10页以此为专题。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N009",
+    "module": 5,
+    "priority": "Others",
+    "pages": [
+      11,
+      12,
+      13,
+      14
+    ],
+    "page": 11,
+    "title": "Secured Model",
+    "slide_wording": "Secured Model; Best Practices; Techniques",
+    "explain": "第11–14页聚焦模型保护。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which AI component's integrity and confidentiality are protected here?",
+    "answer": "Model",
+    "review": "第11–14页聚焦模型保护。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N010",
+    "module": 5,
+    "priority": "Others",
+    "pages": [
+      17,
+      18,
+      19
+    ],
+    "page": 17,
+    "title": "Usability and awareness",
+    "slide_wording": "Usability Enhancement; User Awareness and Training",
+    "explain": "第19页为用户意识与培训。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which people-oriented activity helps users operate AI securely?",
+    "answer": "User awareness and training",
+    "review": "第19页为用户意识与培训。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N011",
+    "module": 5,
+    "priority": "Others",
+    "pages": [
+      20,
+      23,
+      24
+    ],
+    "page": 20,
+    "title": "Operations, updates and recovery",
+    "slide_wording": "Secure Operation and Maintenance; Secure Updates; Reliability, Recovery and House Keeping",
+    "explain": "第23页安全更新，第24页恢复及维护。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which practice maintains software security after deployment?",
+    "answer": "Secure Updates",
+    "review": "第23页安全更新，第24页恢复及维护。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  },
+  {
+    "id": "M5-N012",
+    "module": 5,
+    "priority": "Others",
+    "pages": [
+      26,
+      27,
+      28
+    ],
+    "page": 26,
+    "title": "Course synthesis",
+    "slide_wording": "Summary; Secure Design, Development, Deployment, Operation and Maintenance; Putting All Together",
+    "explain": "第27–28页总结完整生命周期。",
+    "prediction": "terminology, comparison or scenario recognition based on this page / 依据此页的定义、对比或案例识别。",
+    "question": "Which lifecycle phases does the course integrate?",
+    "answer": "Design, Development, Deployment, Operation and Maintenance",
+    "review": "第27–28页总结完整生命周期。",
+    "source_type": "notion-authored",
+    "source_url": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e"
+  }
+]

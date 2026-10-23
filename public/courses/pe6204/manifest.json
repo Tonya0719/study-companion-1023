@@ -1,0 +1,54 @@
+{
+  "id": "pe6204",
+  "title": "PE6204",
+  "subtitle": "Cybersecurity & Secure AI Deployment",
+  "notion": "https://app.notion.com/p/3fdd6401e7f7818785f6e79b2d1b9942",
+  "auditUrl": "https://app.notion.com/p/3fed6401e7f781bb9383c845b32afc0a",
+  "modules": [
+    {
+      "id": 1,
+      "title": "Introduction to Cybersecurity",
+      "shortTitle": "Cybersecurity",
+      "pageCount": 124,
+      "pdf": "pdfs/M1.pdf",
+      "notion": "https://app.notion.com/p/3fed6401e7f781a49affcb4d8ae759c1",
+      "pdfZh": "pdfs/zh/M1.pdf"
+    },
+    {
+      "id": 2,
+      "title": "Security on Generative AI and Essential",
+      "shortTitle": "GenAI Security",
+      "pageCount": 67,
+      "pdf": "pdfs/M2.pdf",
+      "notion": "https://app.notion.com/p/3fed6401e7f78132af97ce55e9165e76",
+      "pdfZh": "pdfs/zh/M2.pdf"
+    },
+    {
+      "id": 3,
+      "title": "Secure Design Principles",
+      "shortTitle": "Secure Design",
+      "pageCount": 40,
+      "pdf": "pdfs/M3.pdf",
+      "notion": "https://app.notion.com/p/3fed6401e7f7819ea268d5da3a273d82",
+      "pdfZh": "pdfs/zh/M3.pdf"
+    },
+    {
+      "id": 4,
+      "title": "Secure Development and Testing",
+      "shortTitle": "Development",
+      "pageCount": 72,
+      "pdf": "pdfs/M4.pdf",
+      "notion": "https://app.notion.com/p/3fed6401e7f78142b8eac3e8084e7f9c",
+      "pdfZh": "pdfs/zh/M4.pdf"
+    },
+    {
+      "id": 5,
+      "title": "Secure Deployment and Post-Deployment",
+      "shortTitle": "Deployment",
+      "pageCount": 30,
+      "pdf": "pdfs/M5.pdf",
+      "notion": "https://app.notion.com/p/3fed6401e7f78154beecd2c2975a507e",
+      "pdfZh": "pdfs/zh/M5.pdf"
+    }
+  ]
+}
