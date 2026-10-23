@@ -30,19 +30,10 @@ type Props = {
 };
 
 async function getPdfPageCount(file: File): Promise<number> {
-  const url = URL.createObjectURL(file);
-  try {
-    const doc = await getDocument({
-      url,
-      cMapUrl: new URL('pdfjs/cmaps/', document.baseURI).href,
-      cMapPacked: true,
-      standardFontDataUrl: new URL('pdfjs/standard_fonts/', document.baseURI).href,
-      wasmUrl: new URL('pdfjs/wasm/', document.baseURI).href,
-    }).promise;
-    return doc.numPages;
-  } finally {
-    URL.revokeObjectURL(url);
-  }
+  // 只需要读页数，不渲染，不需要 cmap/字体/wasm
+  const arrayBuffer = await file.arrayBuffer();
+  const doc = await getDocument({ data: arrayBuffer }).promise;
+  return doc.numPages;
 }
 
 export default function PdfSetup({ modules, onReady }: Props) {
