@@ -239,7 +239,7 @@ export default function PdfSetup({ modules, onReady }: Props) {
                     <div className={`setup-file-status ${enState.error ? 'error' : 'ok'}`}>
                       <FileText size={14} />
                       <span>{enState.fromDB ? `M${m.id} 英文版` : enState.file?.name}</span>
-                      <span className="page-count">{enState.pageCount} 页</span>
+                      <span className="page-count">{enState.pageCount > 0 ? `${enState.pageCount} 页` : '已就绪'}</span>
                       {enState.fromDB && <span className="db-badge"><RefreshCw size={10} />已恢复</span>}
                       {enState.error ? <AlertTriangle size={14} /> : <Check size={14} />}
                       <label className="setup-reupload" title="重新上传">
@@ -270,7 +270,7 @@ export default function PdfSetup({ modules, onReady }: Props) {
                     <div className={`setup-file-status ${zhState.error ? 'error' : zhState.warning ? 'warn' : 'ok'}`}>
                       <FileText size={14} />
                       <span>{zhState.fromDB ? `M${m.id} 中文版` : zhState.file?.name}</span>
-                      <span className="page-count">{zhState.pageCount} 页</span>
+                      <span className="page-count">{zhState.pageCount > 0 ? `${zhState.pageCount} 页` : '已就绪'}</span>
                       {zhState.fromDB && <span className="db-badge"><RefreshCw size={10} />已恢复</span>}
                       {zhState.error ? <AlertTriangle size={14} /> : zhState.warning ? <AlertTriangle size={14} className="warn-icon" /> : <Check size={14} />}
                       <label className="setup-reupload" title="重新上传">
