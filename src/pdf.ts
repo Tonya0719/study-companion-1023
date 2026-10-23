@@ -2,26 +2,13 @@ import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import type { Module } from './types';
 import { getPdfBuffer } from './usePdfStore';
 
-function isSafari() {
-  return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-}
-
-function setupWorker() {
-  try {
-    GlobalWorkerOptions.workerSrc = isSafari()
-      ? ''
-      : new URL('/pdfjs/pdf.worker.min.mjs', document.baseURI).href;
-  } catch {
-    GlobalWorkerOptions.workerSrc = '';
-  }
-}
+// 不使用独立 worker —— 主线程运行在所有浏览器（包括 Safari/iOS）均可用
+// worker 模式在 iOS Safari 上因 ES Module 限制无法工作
+GlobalWorkerOptions.workerSrc = '';
 
 export function ensureWorker() {
-  // 每次调用都重新检查，确保 workerSrc 始终正确
-  setupWorker();
+  GlobalWorkerOptions.workerSrc = '';
 }
-
-setupWorker();
 
 // 缓存 key 用 `${lang}-${moduleId}`（ArrayBuffer 引用不变则复用）
 const docs = new Map<string, ReturnType<typeof getDocument>>();
