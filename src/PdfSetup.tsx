@@ -35,9 +35,15 @@ type Props = {
 };
 
 async function getPdfPageCount(file: File): Promise<number> {
-  const arrayBuffer = await file.arrayBuffer();
-  const doc = await getDocument({ data: new Uint8Array(arrayBuffer) }).promise;
-  return doc.numPages;
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const doc = await getDocument({ data: new Uint8Array(arrayBuffer) }).promise;
+    return doc.numPages;
+  } catch {
+    // Safari 某些版本无法在上传时读取页数
+    // 返回 -1 表示未知，跳过页数校验
+    return -1;
+  }
 }
 
 export default function PdfSetup({ modules, onReady }: Props) {
@@ -112,9 +118,9 @@ export default function PdfSetup({ modules, onReady }: Props) {
       let error: string | undefined;
       let warning: string | undefined;
 
-      if (lang === 'zh') {
+      if (lang === 'zh' && pageCount !== -1) {
         const enPages = en[moduleId]?.pageCount;
-        if (enPages !== undefined) {
+        if (enPages !== undefined && enPages !== -1) {
           if (moduleId === 1 && pageCount === enPages + 1) {
             error =
               `中文 M1 比英文版多 1 页（${pageCount} vs ${enPages} 页）。` +
@@ -141,7 +147,7 @@ export default function PdfSetup({ modules, onReady }: Props) {
         setEn((prev) => ({ ...prev, [moduleId]: state }));
         setZh((prev) => {
           const zhEntry = prev[moduleId];
-          if (!zhEntry) return prev;
+          if (!zhEntry || zhEntry.pageCount === -1 || pageCount === -1) return prev;
           let zhError: string | undefined;
           let zhWarning: string | undefined;
           if (moduleId === 1 && zhEntry.pageCount === pageCount + 1) {
