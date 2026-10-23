@@ -10,15 +10,15 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
+import { getDocument } from 'pdfjs-dist';
 import { BookOpen, Upload, Check, AlertTriangle, X, FileText, LoaderCircle, RefreshCw } from 'lucide-react';
 import { registerPdf, registerPdfBuffer } from './usePdfStore';
 import { savePdfToDB, loadAllFromDB, deletePdfFromDB } from './pdfStorage';
+import { ensureWorker } from './pdf';
 import type { Module } from './types';
 
-GlobalWorkerOptions.workerSrc = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
-  ? ''
-  : new URL('/pdfjs/pdf.worker.min.mjs', document.baseURI).href;
+// 确保 worker 设置与主渲染器一致
+ensureWorker();
 
 type UploadState = {
   file?: File;          // 新上传的文件（可选，DB 恢复时无）
@@ -36,7 +36,7 @@ type Props = {
 
 async function getPdfPageCount(file: File): Promise<number> {
   const arrayBuffer = await file.arrayBuffer();
-  const doc = await getDocument({ data: arrayBuffer }).promise;
+  const doc = await getDocument({ data: new Uint8Array(arrayBuffer) }).promise;
   return doc.numPages;
 }
 
