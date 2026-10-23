@@ -1,13 +1,16 @@
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
-import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import type { Module } from './types';
 import { getPdfUrl } from './usePdfStore';
 
-GlobalWorkerOptions.workerSrc = workerUrl;
+// 使用静态 URL 指向 worker 文件，避免 blob: URL 被 CSP 拦截
+// pdfjs-dist 的 worker 已复制到 public/pdfjs/ 目录
+GlobalWorkerOptions.workerSrc = new URL(
+  '/pdfjs/pdf.worker.min.mjs',
+  document.baseURI
+).href;
 
 const docs = new Map<string, ReturnType<typeof getDocument>>();
 
-/** 从 ObjectURL store 取 URL，不存在时返回 null */
 function resolveUrl(module: Module, language: 'en' | 'zh'): string | null {
   if (language === 'zh') {
     return getPdfUrl('zh', module.id) ?? getPdfUrl('en', module.id);
@@ -23,10 +26,10 @@ export function getPDF(module: Module, language: 'en' | 'zh' = 'en') {
   if (!task) {
     task = getDocument({
       url,
-      cMapUrl: new URL('pdfjs/cmaps/', document.baseURI).href,
+      cMapUrl: new URL('/pdfjs/cmaps/', document.baseURI).href,
       cMapPacked: true,
-      standardFontDataUrl: new URL('pdfjs/standard_fonts/', document.baseURI).href,
-      wasmUrl: new URL('pdfjs/wasm/', document.baseURI).href,
+      standardFontDataUrl: new URL('/pdfjs/standard_fonts/', document.baseURI).href,
+      wasmUrl: new URL('/pdfjs/wasm/', document.baseURI).href,
     });
     docs.set(url, task);
     task.promise.catch(() => docs.delete(url));
@@ -34,7 +37,6 @@ export function getPDF(module: Module, language: 'en' | 'zh' = 'en') {
   return task.promise;
 }
 
-/** 清除某个模块语言的缓存（重新上传后调用） */
 export function evictPdf(module: Module, language: 'en' | 'zh') {
   const url = resolveUrl(module, language);
   if (url) docs.delete(url);
