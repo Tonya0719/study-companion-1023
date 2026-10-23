@@ -79,10 +79,10 @@ export default function PdfSetup({ modules, onReady }: Props) {
         if (allEnReady) {
           const pageCounts: Record<number, { en: number; zh?: number }> = {};
           for (const m of modules) {
-            registerPdf('en', m.id, enStates[m.id].file, enStates[m.id].pageCount);
+            await registerPdf('en', m.id, enStates[m.id].file, enStates[m.id].pageCount);
             pageCounts[m.id] = { en: enStates[m.id].pageCount };
             if (zhStates[m.id] && !zhStates[m.id].error) {
-              registerPdf('zh', m.id, zhStates[m.id].file, zhStates[m.id].pageCount);
+              await registerPdf('zh', m.id, zhStates[m.id].file, zhStates[m.id].pageCount);
               pageCounts[m.id].zh = zhStates[m.id].pageCount;
             }
           }
@@ -164,14 +164,14 @@ export default function PdfSetup({ modules, onReady }: Props) {
   const hasZhError = modules.some((m) => zh[m.id]?.error);
   const canEnter = allEnReady && !hasZhError;
 
-  const handleEnter = () => {
+  const handleEnter = async () => {
     if (!canEnter) return;
     const pageCounts: Record<number, { en: number; zh?: number }> = {};
     for (const m of modules) {
-      registerPdf('en', m.id, en[m.id].file, en[m.id].pageCount);
+      await registerPdf('en', m.id, en[m.id].file, en[m.id].pageCount);
       pageCounts[m.id] = { en: en[m.id].pageCount };
       if (zh[m.id] && !zh[m.id].error) {
-        registerPdf('zh', m.id, zh[m.id].file, zh[m.id].pageCount);
+        await registerPdf('zh', m.id, zh[m.id].file, zh[m.id].pageCount);
         pageCounts[m.id].zh = zh[m.id].pageCount;
       }
     }
