@@ -26,6 +26,17 @@ export async function registerPdf(
   store.pageCounts[`${lang}-${moduleId}`] = pageCount;
 }
 
+/** 直接注册 ArrayBuffer（用于 IndexedDB 恢复） */
+export function registerPdfBuffer(
+  lang: 'en' | 'zh',
+  moduleId: number,
+  buffer: ArrayBuffer,
+  pageCount: number
+): void {
+  store[lang][moduleId] = buffer;
+  store.pageCounts[`${lang}-${moduleId}`] = pageCount;
+}
+
 /** 获取 ArrayBuffer，不存在返回 null */
 export function getPdfBuffer(lang: 'en' | 'zh', moduleId: number): ArrayBuffer | null {
   return store[lang][moduleId] ?? null;

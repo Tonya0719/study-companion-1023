@@ -13,16 +13,17 @@ import { useEffect, useRef, useState } from 'react';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { BookOpen, Upload, Check, AlertTriangle, X, FileText, LoaderCircle, RefreshCw } from 'lucide-react';
-import { registerPdf } from './usePdfStore';
+import { registerPdf, registerPdfBuffer } from './usePdfStore';
 import { savePdfToDB, loadAllFromDB, deletePdfFromDB } from './pdfStorage';
 import type { Module } from './types';
 
 GlobalWorkerOptions.workerSrc = workerUrl;
 
 type UploadState = {
-  file: File;
+  file?: File;          // 新上传的文件（可选，DB 恢复时无）
+  buffer?: ArrayBuffer; // DB 恢复时直接有 buffer
   pageCount: number;
-  fromDB?: boolean;  // 是否从 IndexedDB 恢复
+  fromDB?: boolean;
   error?: string;
   warning?: string;
 };
@@ -79,10 +80,10 @@ export default function PdfSetup({ modules, onReady }: Props) {
         if (allEnReady) {
           const pageCounts: Record<number, { en: number; zh?: number }> = {};
           for (const m of modules) {
-            await registerPdf('en', m.id, enStates[m.id].file, enStates[m.id].pageCount);
+            registerPdfBuffer('en', m.id, enStates[m.id].buffer!, enStates[m.id].pageCount);
             pageCounts[m.id] = { en: enStates[m.id].pageCount };
             if (zhStates[m.id] && !zhStates[m.id].error) {
-              await registerPdf('zh', m.id, zhStates[m.id].file, zhStates[m.id].pageCount);
+              registerPdfBuffer('zh', m.id, zhStates[m.id].buffer!, zhStates[m.id].pageCount);
               pageCounts[m.id].zh = zhStates[m.id].pageCount;
             }
           }
@@ -168,11 +169,21 @@ export default function PdfSetup({ modules, onReady }: Props) {
     if (!canEnter) return;
     const pageCounts: Record<number, { en: number; zh?: number }> = {};
     for (const m of modules) {
-      await registerPdf('en', m.id, en[m.id].file, en[m.id].pageCount);
-      pageCounts[m.id] = { en: en[m.id].pageCount };
-      if (zh[m.id] && !zh[m.id].error) {
-        await registerPdf('zh', m.id, zh[m.id].file, zh[m.id].pageCount);
-        pageCounts[m.id].zh = zh[m.id].pageCount;
+      const enEntry = en[m.id];
+      if (enEntry.buffer) {
+        registerPdfBuffer('en', m.id, enEntry.buffer, enEntry.pageCount);
+      } else if (enEntry.file) {
+        await registerPdf('en', m.id, enEntry.file, enEntry.pageCount);
+      }
+      pageCounts[m.id] = { en: enEntry.pageCount };
+      const zhEntry = zh[m.id];
+      if (zhEntry && !zhEntry.error) {
+        if (zhEntry.buffer) {
+          registerPdfBuffer('zh', m.id, zhEntry.buffer, zhEntry.pageCount);
+        } else if (zhEntry.file) {
+          await registerPdf('zh', m.id, zhEntry.file, zhEntry.pageCount);
+        }
+        pageCounts[m.id].zh = zhEntry.pageCount;
       }
     }
     onReady(pageCounts);
@@ -221,7 +232,7 @@ export default function PdfSetup({ modules, onReady }: Props) {
                   {enState ? (
                     <div className={`setup-file-status ${enState.error ? 'error' : 'ok'}`}>
                       <FileText size={14} />
-                      <span>{enState.fromDB ? `M${m.id} 英文版` : enState.file.name}</span>
+                      <span>{enState.fromDB ? `M${m.id} 英文版` : enState.file?.name}</span>
                       <span className="page-count">{enState.pageCount} 页</span>
                       {enState.fromDB && <span className="db-badge"><RefreshCw size={10} />已恢复</span>}
                       {enState.error ? <AlertTriangle size={14} /> : <Check size={14} />}
@@ -248,7 +259,7 @@ export default function PdfSetup({ modules, onReady }: Props) {
                   {zhState ? (
                     <div className={`setup-file-status ${zhState.error ? 'error' : zhState.warning ? 'warn' : 'ok'}`}>
                       <FileText size={14} />
-                      <span>{zhState.fromDB ? `M${m.id} 中文版` : zhState.file.name}</span>
+                      <span>{zhState.fromDB ? `M${m.id} 中文版` : zhState.file?.name}</span>
                       <span className="page-count">{zhState.pageCount} 页</span>
                       {zhState.fromDB && <span className="db-badge"><RefreshCw size={10} />已恢复</span>}
                       {zhState.error ? <AlertTriangle size={14} /> : zhState.warning ? <AlertTriangle size={14} className="warn-icon" /> : <Check size={14} />}
