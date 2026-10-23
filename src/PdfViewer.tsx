@@ -1,6 +1,6 @@
 import {useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,ChevronLeft,ChevronRight,Maximize,Minus,Plus,Search,ScanLine,LoaderCircle,FileText,RotateCcw} from 'lucide-react';
-import {TextLayer} from 'pdfjs-dist';
+import {TextLayer} from 'pdfjs-dist/legacy/build/pdf.mjs';
 import {getPDF} from './pdf';
 import type {Module,Point} from './types';
 import 'pdfjs-dist/web/pdf_viewer.css';

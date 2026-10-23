@@ -1,23 +1,32 @@
-import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
+// 使用 pdf.js 官方 legacy 构建：modern 构建只面向最新 Chrome/Firefox，
+// Safari/iPadOS 需要 legacy 构建（含 Promise.withResolvers / Promise.try 等 polyfill）。
+import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist/legacy/build/pdf.mjs';
+// Vite 以静态资源（https 地址，非 blob:）输出 worker 文件
+import workerUrl from 'pdfjs-dist/legacy/build/pdf.worker.min.mjs?url';
 import type { Module } from './types';
 import { getPdfBuffer } from './usePdfStore';
 
-// 不使用独立 worker —— 主线程运行在所有浏览器（包括 Safari/iOS）均可用
-// worker 模式在 iOS Safari 上因 ES Module 限制无法工作
-GlobalWorkerOptions.workerSrc = '';
-
+/**
+ * 优先使用自定义 worker（src/pdf.worker.ts，带 Safari 补丁），
+ * 创建失败时回退到官方 legacy worker 文件。全局只创建一个 worker，所有文档共用。
+ */
 export function ensureWorker() {
-  GlobalWorkerOptions.workerSrc = '';
+  GlobalWorkerOptions.workerSrc = workerUrl; // 回退地址
+  if (GlobalWorkerOptions.workerPort) return;
+  try {
+    GlobalWorkerOptions.workerPort = new Worker(new URL('./pdf.worker.ts', import.meta.url), { type: 'module' });
+  } catch {
+    // 回退：pdf.js 会自行用 workerSrc 创建 worker
+  }
 }
 
-// 缓存 key 用 `${lang}-${moduleId}`（ArrayBuffer 引用不变则复用）
+ensureWorker();
+
 const docs = new Map<string, ReturnType<typeof getDocument>>();
 
 function getDocKey(module: Module, language: 'en' | 'zh'): string {
-  // 若请求中文但无中文版，fallback 到英文
-  if (language === 'zh' && !getPdfBuffer('zh', module.id)) {
-    return `en-${module.id}`;
-  }
+  // 请求中文但无中文版时回退英文
+  if (language === 'zh' && !getPdfBuffer('zh', module.id)) return `en-${module.id}`;
   return `${language}-${module.id}`;
 }
 
@@ -25,17 +34,14 @@ export function getPDF(module: Module, language: 'en' | 'zh' = 'en') {
   const key = getDocKey(module, language);
   const lang = key.startsWith('zh') ? 'zh' : 'en';
   const buffer = getPdfBuffer(lang, module.id);
-
-  if (!buffer) {
-    throw new Error(`M${module.id} 课件尚未上传，请先在首页上传 PDF 文件。`);
-  }
+  if (!buffer) throw new Error(`M${module.id} 课件尚未上传，请先在首页上传 PDF 文件。`);
 
   let task = docs.get(key);
   if (!task) {
-    // 用 Uint8Array 复制数据，比 ArrayBuffer.slice 在 Safari 上更兼容
-    const data = new Uint8Array(buffer);
     task = getDocument({
-      data,
+      // 必须传副本：pdf.js 会把数据转移给 worker，原 ArrayBuffer 随即失效，
+      // 若传原数据的视图，下次重新加载同一模块会读到空数据
+      data: new Uint8Array(buffer.slice(0)),
       cMapUrl: new URL('/pdfjs/cmaps/', document.baseURI).href,
       cMapPacked: true,
       standardFontDataUrl: new URL('/pdfjs/standard_fonts/', document.baseURI).href,

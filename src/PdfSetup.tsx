@@ -10,7 +10,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { getDocument } from 'pdfjs-dist';
+import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { BookOpen, Upload, Check, AlertTriangle, X, FileText, LoaderCircle, RefreshCw } from 'lucide-react';
 import { registerPdf, registerPdfBuffer } from './usePdfStore';
 import { savePdfToDB, loadAllFromDB, deletePdfFromDB } from './pdfStorage';
@@ -36,12 +36,13 @@ type Props = {
 
 async function getPdfPageCount(file: File): Promise<number> {
   try {
-    const arrayBuffer = await file.arrayBuffer();
-    const doc = await getDocument({ data: new Uint8Array(arrayBuffer) }).promise;
-    return doc.numPages;
+    const task = getDocument({ data: new Uint8Array(await file.arrayBuffer()) });
+    const doc = await task.promise;
+    const count = doc.numPages;
+    await task.destroy(); // 只读页数，读完释放 worker 内存
+    return count;
   } catch {
-    // Safari 某些版本无法在上传时读取页数
-    // 返回 -1 表示未知，跳过页数校验
+    // 读取失败时返回 -1（未知），跳过页数校验，不阻止进入
     return -1;
   }
 }
