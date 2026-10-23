@@ -1,18 +1,20 @@
 /**
- * PdfSetup — 首次使用时的 PDF 上传界面
+ * PdfSetup — PDF 上传界面
  *
  * 规则：
+ * - 启动时自动从 IndexedDB 恢复已存的 PDF，全部英文版都在则直接进入
  * - 英文版（M1–M5）必须全部上传才能进入
  * - 中文版可选，逐模块单独上传
  * - 中文 M1 若页数 = 英文 M1 页数 + 1，说明未删第 34 页，阻止并提示
  * - 中文其他模块若页数 ≠ 英文版，显示警告但不阻止
  */
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
-import { BookOpen, Upload, Check, AlertTriangle, X, FileText } from 'lucide-react';
+import { BookOpen, Upload, Check, AlertTriangle, X, FileText, LoaderCircle, RefreshCw } from 'lucide-react';
 import { registerPdf } from './usePdfStore';
+import { savePdfToDB, loadAllFromDB, deletePdfFromDB } from './pdfStorage';
 import type { Module } from './types';
 
 GlobalWorkerOptions.workerSrc = workerUrl;
@@ -20,8 +22,9 @@ GlobalWorkerOptions.workerSrc = workerUrl;
 type UploadState = {
   file: File;
   pageCount: number;
-  error?: string;   // 阻止继续的错误（需重传）
-  warning?: string; // 警告（可以继续）
+  fromDB?: boolean;  // 是否从 IndexedDB 恢复
+  error?: string;
+  warning?: string;
 };
 
 type Props = {
@@ -30,7 +33,6 @@ type Props = {
 };
 
 async function getPdfPageCount(file: File): Promise<number> {
-  // 只需要读页数，不渲染，不需要 cmap/字体/wasm
   const arrayBuffer = await file.arrayBuffer();
   const doc = await getDocument({ data: arrayBuffer }).promise;
   return doc.numPages;
@@ -40,13 +42,63 @@ export default function PdfSetup({ modules, onReady }: Props) {
   const [en, setEn] = useState<Record<number, UploadState>>({});
   const [zh, setZh] = useState<Record<number, UploadState>>({});
   const [loading, setLoading] = useState<string>('');
+  const [restoring, setRestoring] = useState(true); // 启动时恢复 DB
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
-  const handleFile = async (
-    lang: 'en' | 'zh',
-    moduleId: number,
-    file: File
-  ) => {
+  // 启动时从 IndexedDB 恢复
+  useEffect(() => {
+    void (async () => {
+      try {
+        const moduleIds = modules.map((m) => m.id);
+        const { en: savedEn, zh: savedZh } = await loadAllFromDB(moduleIds);
+
+        const enStates: Record<number, UploadState> = {};
+        const zhStates: Record<number, UploadState> = {};
+
+        for (const m of modules) {
+          if (savedEn[m.id]) {
+            enStates[m.id] = { ...savedEn[m.id], fromDB: true };
+          }
+        }
+        for (const m of modules) {
+          if (savedZh[m.id]) {
+            const enPages = enStates[m.id]?.pageCount;
+            let warning: string | undefined;
+            if (enPages !== undefined && savedZh[m.id].pageCount !== enPages) {
+              warning = `中文 M${m.id} 页数（${savedZh[m.id].pageCount} 页）与英文版（${enPages} 页）不一致。`;
+            }
+            zhStates[m.id] = { ...savedZh[m.id], fromDB: true, warning };
+          }
+        }
+
+        setEn(enStates);
+        setZh(zhStates);
+
+        // 所有英文版都在，自动进入
+        const allEnReady = modules.every((m) => enStates[m.id]);
+        if (allEnReady) {
+          const pageCounts: Record<number, { en: number; zh?: number }> = {};
+          for (const m of modules) {
+            registerPdf('en', m.id, enStates[m.id].file, enStates[m.id].pageCount);
+            pageCounts[m.id] = { en: enStates[m.id].pageCount };
+            if (zhStates[m.id] && !zhStates[m.id].error) {
+              registerPdf('zh', m.id, zhStates[m.id].file, zhStates[m.id].pageCount);
+              pageCounts[m.id].zh = zhStates[m.id].pageCount;
+            }
+          }
+          onReady(pageCounts);
+          return;
+        }
+      } catch {
+        // IndexedDB 不可用（隐私模式等），静默忽略
+      } finally {
+        setRestoring(false);
+      }
+    })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleFile = async (lang: 'en' | 'zh', moduleId: number, file: File) => {
     if (!file.name.endsWith('.pdf') && file.type !== 'application/pdf') {
       alert('请上传 PDF 文件');
       return;
@@ -56,7 +108,6 @@ export default function PdfSetup({ modules, onReady }: Props) {
     try {
       const pageCount = await getPdfPageCount(file);
 
-      // 校验逻辑
       let error: string | undefined;
       let warning: string | undefined;
 
@@ -64,7 +115,6 @@ export default function PdfSetup({ modules, onReady }: Props) {
         const enPages = en[moduleId]?.pageCount;
         if (enPages !== undefined) {
           if (moduleId === 1 && pageCount === enPages + 1) {
-            // M1 中文版比英文版多 1 页 → 第 34 页未删
             error =
               `中文 M1 比英文版多 1 页（${pageCount} vs ${enPages} 页）。` +
               `请在 PDF 编辑器中删除原第 34 页后重新上传。`;
@@ -78,22 +128,25 @@ export default function PdfSetup({ modules, onReady }: Props) {
 
       const state: UploadState = { file, pageCount, error, warning };
 
+      // 存入 IndexedDB（有错误的不存）
+      if (!error) {
+        try { await savePdfToDB(lang, moduleId, file, pageCount); } catch { /* 隐私模式下忽略 */ }
+      } else {
+        // 有错误时删除旧的 DB 记录
+        try { await deletePdfFromDB(lang, moduleId); } catch { /* ignore */ }
+      }
+
       if (lang === 'en') {
         setEn((prev) => ({ ...prev, [moduleId]: state }));
-        // 英文版更新后重新校验对应中文版
         setZh((prev) => {
           const zhEntry = prev[moduleId];
           if (!zhEntry) return prev;
           let zhError: string | undefined;
           let zhWarning: string | undefined;
           if (moduleId === 1 && zhEntry.pageCount === pageCount + 1) {
-            zhError =
-              `中文 M1 比英文版多 1 页（${zhEntry.pageCount} vs ${pageCount} 页）。` +
-              `请在 PDF 编辑器中删除原第 34 页后重新上传。`;
+            zhError = `中文 M1 比英文版多 1 页（${zhEntry.pageCount} vs ${pageCount} 页）。请删除原第 34 页后重新上传。`;
           } else if (zhEntry.pageCount !== pageCount) {
-            zhWarning =
-              `中文 M${moduleId} 页数（${zhEntry.pageCount} 页）与英文版（${pageCount} 页）不一致，` +
-              `语言切换时页码可能偏移。`;
+            zhWarning = `中文 M${moduleId} 页数（${zhEntry.pageCount} 页）与英文版（${pageCount} 页）不一致。`;
           }
           return { ...prev, [moduleId]: { ...zhEntry, error: zhError, warning: zhWarning } };
         });
@@ -101,7 +154,7 @@ export default function PdfSetup({ modules, onReady }: Props) {
         setZh((prev) => ({ ...prev, [moduleId]: state }));
       }
     } catch {
-      alert(`无法读取 PDF，请确认文件完整。`);
+      alert('无法读取 PDF，请确认文件完整。');
     } finally {
       setLoading('');
     }
@@ -113,7 +166,6 @@ export default function PdfSetup({ modules, onReady }: Props) {
 
   const handleEnter = () => {
     if (!canEnter) return;
-    // 注册所有已上传的 PDF 到 store
     const pageCounts: Record<number, { en: number; zh?: number }> = {};
     for (const m of modules) {
       registerPdf('en', m.id, en[m.id].file, en[m.id].pageCount);
@@ -125,6 +177,17 @@ export default function PdfSetup({ modules, onReady }: Props) {
     }
     onReady(pageCounts);
   };
+
+  // 恢复中显示 loading
+  if (restoring) {
+    return (
+      <div className="startup">
+        <div className="brand-icon"><BookOpen /></div>
+        <h1>Study Companion</h1>
+        <p><LoaderCircle size={16} className="spin" /> 正在恢复课件…</p>
+      </div>
+    );
+  }
 
   return (
     <div className="setup-screen">
@@ -158,45 +221,26 @@ export default function PdfSetup({ modules, onReady }: Props) {
                   {enState ? (
                     <div className={`setup-file-status ${enState.error ? 'error' : 'ok'}`}>
                       <FileText size={14} />
-                      <span>{enState.file.name}</span>
+                      <span>{enState.fromDB ? `M${m.id} 英文版` : enState.file.name}</span>
                       <span className="page-count">{enState.pageCount} 页</span>
-                      {enState.error
-                        ? <AlertTriangle size={14} />
-                        : <Check size={14} />
-                      }
-                      <button
-                        className="setup-reupload"
-                        onClick={() => inputRefs.current[`en-${m.id}`]?.click()}
-                        title="重新上传"
-                      >
+                      {enState.fromDB && <span className="db-badge"><RefreshCw size={10} />已恢复</span>}
+                      {enState.error ? <AlertTriangle size={14} /> : <Check size={14} />}
+                      <button className="setup-reupload" onClick={() => inputRefs.current[`en-${m.id}`]?.click()} title="重新上传">
                         <X size={12} />
                       </button>
                     </div>
                   ) : (
-                    <button
-                      className="setup-upload-btn"
-                      onClick={() => inputRefs.current[`en-${m.id}`]?.click()}
-                      disabled={loading === `en-${m.id}`}
-                    >
+                    <button className="setup-upload-btn" onClick={() => inputRefs.current[`en-${m.id}`]?.click()} disabled={loading === `en-${m.id}`}>
                       <Upload size={14} />
                       {loading === `en-${m.id}` ? '读取中…' : '选择文件'}
                     </button>
                   )}
-                  <input
-                    type="file"
-                    accept=".pdf,application/pdf"
-                    style={{ display: 'none' }}
+                  <input type="file" accept=".pdf,application/pdf" style={{ display: 'none' }}
                     ref={(el) => { inputRefs.current[`en-${m.id}`] = el; }}
-                    onChange={(e) => {
-                      const f = e.target.files?.[0];
-                      if (f) void handleFile('en', m.id, f);
-                      e.target.value = '';
-                    }}
+                    onChange={(e) => { const f = e.target.files?.[0]; if (f) void handleFile('en', m.id, f); e.target.value = ''; }}
                   />
                 </div>
-                {enState?.error && (
-                  <div className="setup-error">{enState.error}</div>
-                )}
+                {enState?.error && <div className="setup-error">{enState.error}</div>}
 
                 {/* 中文版 */}
                 <div className="setup-upload-row">
@@ -204,50 +248,27 @@ export default function PdfSetup({ modules, onReady }: Props) {
                   {zhState ? (
                     <div className={`setup-file-status ${zhState.error ? 'error' : zhState.warning ? 'warn' : 'ok'}`}>
                       <FileText size={14} />
-                      <span>{zhState.file.name}</span>
+                      <span>{zhState.fromDB ? `M${m.id} 中文版` : zhState.file.name}</span>
                       <span className="page-count">{zhState.pageCount} 页</span>
-                      {zhState.error
-                        ? <AlertTriangle size={14} />
-                        : zhState.warning
-                          ? <AlertTriangle size={14} className="warn-icon" />
-                          : <Check size={14} />
-                      }
-                      <button
-                        className="setup-reupload"
-                        onClick={() => inputRefs.current[`zh-${m.id}`]?.click()}
-                        title="重新上传"
-                      >
+                      {zhState.fromDB && <span className="db-badge"><RefreshCw size={10} />已恢复</span>}
+                      {zhState.error ? <AlertTriangle size={14} /> : zhState.warning ? <AlertTriangle size={14} className="warn-icon" /> : <Check size={14} />}
+                      <button className="setup-reupload" onClick={() => inputRefs.current[`zh-${m.id}`]?.click()} title="重新上传">
                         <X size={12} />
                       </button>
                     </div>
                   ) : (
-                    <button
-                      className="setup-upload-btn optional"
-                      onClick={() => inputRefs.current[`zh-${m.id}`]?.click()}
-                      disabled={loading === `zh-${m.id}`}
-                    >
+                    <button className="setup-upload-btn optional" onClick={() => inputRefs.current[`zh-${m.id}`]?.click()} disabled={loading === `zh-${m.id}`}>
                       <Upload size={14} />
                       {loading === `zh-${m.id}` ? '读取中…' : '选择文件（可选）'}
                     </button>
                   )}
-                  <input
-                    type="file"
-                    accept=".pdf,application/pdf"
-                    style={{ display: 'none' }}
+                  <input type="file" accept=".pdf,application/pdf" style={{ display: 'none' }}
                     ref={(el) => { inputRefs.current[`zh-${m.id}`] = el; }}
-                    onChange={(e) => {
-                      const f = e.target.files?.[0];
-                      if (f) void handleFile('zh', m.id, f);
-                      e.target.value = '';
-                    }}
+                    onChange={(e) => { const f = e.target.files?.[0]; if (f) void handleFile('zh', m.id, f); e.target.value = ''; }}
                   />
                 </div>
-                {zhState?.error && (
-                  <div className="setup-error">{zhState.error}</div>
-                )}
-                {zhState?.warning && !zhState.error && (
-                  <div className="setup-warning">{zhState.warning}</div>
-                )}
+                {zhState?.error && <div className="setup-error">{zhState.error}</div>}
+                {zhState?.warning && !zhState.error && <div className="setup-warning">{zhState.warning}</div>}
               </div>
             );
           })}
@@ -257,16 +278,10 @@ export default function PdfSetup({ modules, onReady }: Props) {
           <p className="setup-hint">
             {!allEnReady
               ? `还需上传 ${modules.filter((m) => !en[m.id]).length} 个英文版模块`
-              : hasZhError
-                ? '请修复中文版错误后继续'
-                : '所有必要文件已就绪 ✓'
-            }
+              : hasZhError ? '请修复中文版错误后继续'
+              : '所有必要文件已就绪 ✓'}
           </p>
-          <button
-            className="primary-button setup-enter"
-            disabled={!canEnter}
-            onClick={handleEnter}
-          >
+          <button className="primary-button setup-enter" disabled={!canEnter} onClick={handleEnter}>
             <BookOpen size={16} />
             进入学习空间
           </button>
